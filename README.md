@@ -1,4 +1,6 @@
-# Project
+# AlgoPlat
+
+AlgoPlat is a university project, developed to help the students of Plovdiv University Paisii Hilendarski in their Data Structures and Algorithm courses.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
