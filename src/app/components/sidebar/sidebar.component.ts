@@ -15,12 +15,10 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.selectedAlgorithmType.label)
   }
 
   ngOnChanges() {
     this.algorithms = this.selectedAlgorithmType.algorithms;
-    console.log(this.algorithms);
   }
 
 }
