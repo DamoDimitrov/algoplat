@@ -6,18 +6,21 @@
         <!-- Language Dropdown -->
         <ul class="navbar-nav overflow-visible">
           <li class="nav-item dropdown">
-            <a class="nav-link btn btn-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link btn btn-secondary" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
               Language
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">English</a></li>
-              <li><a class="dropdown-item" href="#">Български</a></li>
-              <!-- Add more language options here -->
+              <li *ngFor="let language of languages">
+                <a class="dropdown-item" href="#">{{language.label}}</a>
+              </li>
             </ul>
           </li>
         </ul>
       </div>
-      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
@@ -25,7 +28,7 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav navbar-center">
         <li class="nav-item" *ngFor="let type of typesOfAlgorithms">
-          <a class="nav-link active" aria-current="page">{{type.label}}</a>
+          <button (click)="typeChangeEvent(type)" class="nav-link active" aria-current="page">{{type.label}}</button>
         </li>
       </ul>
     </div>

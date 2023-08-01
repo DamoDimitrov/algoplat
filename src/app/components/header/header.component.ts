@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ENGLISH} from "../../common/English";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {English} from "../../languages/english";
+import {LANGUAGES} from "../../languages/languages";
 
 @Component({
   selector: 'app-header',
@@ -7,19 +8,28 @@ import {ENGLISH} from "../../common/English";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  headerTitle = ENGLISH.HEADER_TITLE;
+  headerTitle = English.HEADER_TITLE;
+  languages = LANGUAGES;
 
-  typesOfAlgorithms = [
-    {label:'Sorting', route:'#sorting'},
-    {label:'Searching', route: '#searching'},
-    {label:'Recursive', route:'#recursive'},
-    {label:'Hashing', route:'#hashing'},
-    {label:'Randomized', route:'#randomized'}
-  ]
+  @Output()
+  emitTypeChange = new EventEmitter();
+
+  typesOfAlgorithms = English.algorithmTypes;
+
+  // typesOfAlgorithms = [
+  //   {label:'Sorting', route:'#sorting'},
+  //   {label:'Searching', route: '#searching'},
+  //   {label:'Recursive', route:'#recursive'},
+  //   {label:'Hashing', route:'#hashing'},
+  //   {label:'Randomized', route:'#randomized'}
+  // ]
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  typeChangeEvent(event: any) {
+    this.emitTypeChange.emit(event);
+  }
 }

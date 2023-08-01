@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {LANGUAGES} from "./languages/languages";
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,14 @@ import {LANGUAGES} from "./languages/languages";
 export class AppComponent {
   title = 'project';
   selectedLanguage = '';
-  languages = LANGUAGES;
+
+  selectedAlgorithmType: object = {}
 
   ngOnInit() {
-    console.log(this.languages);
+  }
+
+  handleTypeChange(type: any) {
+    console.log('root', type)
+    this.selectedAlgorithmType = type;
   }
 }
