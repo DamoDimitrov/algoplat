@@ -2,12 +2,10 @@
   display: block;
 }
 
-/* Custom CSS to handle overflow */
 .navbar .navbar-nav.overflow-visible {
   overflow: visible;
 }
 
-/* Custom CSS to position the dropdown */
 .navbar-nav.overflow-visible .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -16,7 +14,6 @@
   min-width: 100%;
 }
 
-/* Custom CSS to center the dynamic navigation items */
 .navbar-nav.navbar-center {
   width: 100%;
   display: flex;
@@ -25,14 +22,10 @@
 
 .navbar-nav.navbar-center .nav-item {
   flex: none;
-  margin-right: 15px; /* Adjust this value as needed */
+  margin-right: 15px;
 }
 
 .navbar-nav.navbar-center .nav-link {
-  padding-left: 10px; /* Adjust this value as needed */
-  padding-right: 10px; /* Adjust this value as needed */
+  padding-left: 10px;
+  padding-right: 10px;
 }
-//
-//.navbar-container {
-//  display: flex;
-//}

@@ -16,14 +16,6 @@ export class HeaderComponent implements OnInit {
 
   typesOfAlgorithms = English.algorithmTypes;
 
-  // typesOfAlgorithms = [
-  //   {label:'Sorting', route:'#sorting'},
-  //   {label:'Searching', route: '#searching'},
-  //   {label:'Recursive', route:'#recursive'},
-  //   {label:'Hashing', route:'#hashing'},
-  //   {label:'Randomized', route:'#randomized'}
-  // ]
-
   constructor() { }
 
   ngOnInit(): void {
