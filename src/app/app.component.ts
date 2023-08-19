@@ -1,21 +1,30 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'project';
-  selectedLanguage = '';
+  //Sets en as default lang and gets the local browser lang
+  defaultLanguage = 'en';
+  locale = this.translate.getBrowserLang() || '';
 
-  selectedAlgorithmType: object = {}
+  selectedAlgorithmType: object = {};
 
-  ngOnInit() {
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang(this.defaultLanguage);
+    this.translate.use(this.locale);
   }
 
-  handleTypeChange(type: any) {
-    console.log('root', type)
+  ngOnInit() {}
+
+  handleTypeChange(type: any): void {
     this.selectedAlgorithmType = type;
+  }
+
+  handleLanguageChange(lang: string): void {
+    this.translate.use(lang);
   }
 }

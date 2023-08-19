@@ -1,0 +1,68 @@
+{
+  "HEADER_TITLE": "AlgoPlat",
+  "algorithmTypes": [
+    {
+      "label": "Sorting",
+      "value": "sorting",
+      "algorithms": [
+        {
+          "label": "Quick Sort",
+          "value": "quicksort"
+        },
+        {
+          "label": "Bubble Sort",
+          "value": "bubblesort"
+        },
+        {
+          "label": "Merge Sort",
+          "value": "mergesort"
+        }
+      ]
+    },
+    {
+      "label": "Searching",
+      "value": "searching",
+      "algorithms": [
+        {
+          "label": "Sequential Search",
+          "value": "sequentialsearch"
+        },
+        {
+          "label": "Interval Search",
+          "value": "intervalsearch"
+        },
+        {
+          "label": "Binary Search",
+          "value": "binarysearch"
+        }
+      ]
+    },
+    {
+      "label": "Recursive",
+      "value": "recursive",
+      "algorithms": [
+        {
+          "label": ""
+        }
+      ]
+    },
+    {
+      "label": "Hashing",
+      "value": "hashing",
+      "algorithms": [
+        {
+          "label": ""
+        }
+      ]
+    },
+    {
+      "label": "Randomized",
+      "value": "randomized",
+      "algorithms": [
+        {
+          "label": ""
+        }
+      ]
+    }
+  ]
+}
