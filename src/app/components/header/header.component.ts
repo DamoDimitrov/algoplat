@@ -1,14 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {English} from "../../languages/english";
-import {LANGUAGES} from "../../languages/languages";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { English } from '../../languages/english';
+import { LANGUAGES } from '../../languages/languages';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  headerTitle = English.HEADER_TITLE;
   languages = LANGUAGES;
 
   @Output()
@@ -16,10 +15,9 @@ export class HeaderComponent implements OnInit {
 
   typesOfAlgorithms = English.algorithmTypes;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   typeChangeEvent(event: any) {
     this.emitTypeChange.emit(event);
