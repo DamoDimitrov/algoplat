@@ -7,15 +7,18 @@
       "algorithms": [
         {
           "label": "Quick Sort",
-          "value": "quicksort"
+          "value": "quicksort",
+          "sourceCode": ""
         },
         {
           "label": "Bubble Sort",
-          "value": "bubblesort"
+          "value": "bubblesort",
+          "sourceCode": ""
         },
         {
           "label": "Merge Sort",
-          "value": "mergesort"
+          "value": "mergesort",
+          "sourceCode": ""
         }
       ]
     },
@@ -25,15 +28,18 @@
       "algorithms": [
         {
           "label": "Sequential Search",
-          "value": "sequentialsearch"
+          "value": "sequentialsearch",
+          "sourceCode": ""
         },
         {
           "label": "Interval Search",
-          "value": "intervalsearch"
+          "value": "intervalsearch",
+          "sourceCode": ""
         },
         {
           "label": "Binary Search",
-          "value": "binarysearch"
+          "value": "binarysearch",
+          "sourceCode": ""
         }
       ]
     },
@@ -42,7 +48,9 @@
       "value": "recursive",
       "algorithms": [
         {
-          "label": ""
+          "label": "",
+          "value": "",
+          "sourceCode": ""
         }
       ]
     },
@@ -51,7 +59,9 @@
       "value": "hashing",
       "algorithms": [
         {
-          "label": ""
+          "label": "",
+          "value": "",
+          "sourceCode": ""
         }
       ]
     },
@@ -60,7 +70,9 @@
       "value": "randomized",
       "algorithms": [
         {
-          "label": ""
+          "label": "",
+          "value": "",
+          "sourceCode": ""
         }
       ]
     }

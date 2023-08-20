@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { English } from '../../languages/english';
 import { LANGUAGES } from '../../languages/languages';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -9,17 +10,22 @@ import { LANGUAGES } from '../../languages/languages';
 })
 export class HeaderComponent implements OnInit {
   languages = LANGUAGES;
+  typesOfAlgorithms: any;
 
   @Output()
   emitTypeChange = new EventEmitter();
 
-  typesOfAlgorithms = English.algorithmTypes;
-
-  constructor() {}
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {}
 
-  typeChangeEvent(event: any) {
+  fetchAlgorithmTypes(): void {
+    this.translate.get('algorithmTypes').subscribe((result) => {
+      this.typesOfAlgorithms = result;
+    });
+  }
+
+  typeChangeEvent(event: any): void {
     this.emitTypeChange.emit(event);
   }
 }
