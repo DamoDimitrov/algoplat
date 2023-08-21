@@ -25,6 +25,8 @@ export class AppComponent {
   }
 
   handleLanguageChange(lang: string): void {
+    console.log('app', lang);
+
     this.translate.use(lang);
   }
 }

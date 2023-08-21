@@ -12,7 +12,7 @@
             </a>
             <ul class="dropdown-menu">
               <li *ngFor="let language of languages">
-                <a class="dropdown-item" href="#">{{language.label}}</a>
+                <a (click)="languageChangeEvent(language.value)" class="dropdown-item" href="#">{{language.label}}</a>
               </li>
             </ul>
           </li>
@@ -28,7 +28,8 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav navbar-center">
         <li class="nav-item" *ngFor="let type of typesOfAlgorithms">
-          <button (click)="typeChangeEvent(type)" class="nav-link active" aria-current="page">{{type.label}}</button>
+          <button (click)="typeChangeEvent(type)" class="nav-link active" aria-current="page">{{type.label |
+            translate}}</button>
         </li>
       </ul>
     </div>
