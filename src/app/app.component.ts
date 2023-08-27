@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, IterableDiffers } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,15 @@ export class AppComponent {
 
   constructor(private translate: TranslateService) {
     this.translate.setDefaultLang(this.defaultLanguage);
+    this.translate.addLangs(['en', 'bg']);
     this.translate.use(this.locale);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.test();
+  }
 
-  handleTypeChange(type: any): void {
+  handleTypeChange(type: object): void {
     this.selectedAlgorithmType = type;
   }
 
@@ -28,5 +32,30 @@ export class AppComponent {
     console.log('app', lang);
 
     this.translate.use(lang);
+  }
+
+  test(): void {
+    let arr = [7, 9, 0, 0, 12, -5, 3, -7];
+    console.log('arr un', arr);
+    console.log('arr s', this.qs(arr));
+  }
+
+  qs(arr: number[]): number[] {
+    if (arr.length <= 1) {
+      return arr;
+    }
+
+    let p = arr[0];
+    let left = [];
+    let right = [];
+
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] <= p) {
+        left.push(arr[i]);
+      } else {
+        right.push(arr[i]);
+      }
+    }
+    return [...this.qs(left), p, ...this.qs(right)];
   }
 }

@@ -1,10 +1,9 @@
 button.nav-link:hover {
   background-color: #313438;
-  color: #FFF;
+  color: #fff;
 }
 
 button.nav-link {
-  //padding: 5px 40px;
   color: black;
   background-color: transparent;
   width: 80%;
@@ -13,16 +12,16 @@ button.nav-link {
   text-align: center;
 }
 
-.sidebar-outer {
-  min-width: 10em;
-  height: 100%;
-  width: 15%;
-  padding-top: 15%;
-  position: absolute;
-  box-shadow: 2px 0px 20px -10px;
-}
+// .sidebar-outer {
+//   min-width: 10em;
+// height: 100%;
+//   width: 15%;
+// padding-top: 15%;
+//   position: absolute;
+// box-shadow: 2px 0px 20px -10px;
+// }
 
 button.active {
   background-color: #313438 !important;
-  color: #FFF !important;
+  color: #fff !important;
 }
