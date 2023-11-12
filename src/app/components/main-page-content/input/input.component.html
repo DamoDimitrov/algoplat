@@ -1,18 +1,18 @@
 <div class="container my-3 py-2" style="width: 90%; border-radius: 10px;">
-    <form [formGroup]="dataForm" (submit)="getUserData()">
-        <label for="data" class="form-label">Enter Data</label>
-        <input id="data" formControlName="data" placeholder="eg. [ 7, 9, 0, 0, 12, -5, 3, -7 ]" class="form-control">
-        <button type="submit" class="btn btn-secondary my-2">Submit</button>
+    <form [formGroup]="dataForm" (submit)="submitUserData()">
+        <label for="data" class="form-label">{{'ENTER_DATA_LABEL' | translate}}</label>
+        <input id="data" formControlName="data" placeholder="eg. 7, 9, 0, 0, 12, -5, 3, -7" class="form-control">
+        <button type="submit" class="btn btn-secondary my-2">{{'SUBMIT_BUTTON' | translate}}</button>
     </form>
     <div class="container">
         <div class="row">
             <div class="col">
-                Input: 7, 9, 0, 0, 12, -5, 3, -7
+                {{'INPUT_LABEL' | translate}} {{input}}
             </div>
         </div>
         <div class="row">
             <div class="col">
-                Output:
+                {{'RESULT_LABEL' | translate}} {{result}}
             </div>
         </div>
     </div>

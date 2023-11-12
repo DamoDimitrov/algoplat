@@ -1,6 +1,7 @@
 import { Component, IterableDiffers } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { first } from 'rxjs';
+import { Algorithms } from './common/algorithms';
 
 @Component({
   selector: 'app-root',
@@ -35,27 +36,8 @@ export class AppComponent {
   }
 
   test(): void {
-    let arr = [7, 9, 0, 0, 12, -5, 3, -7];
-    console.log('arr un', arr);
-    console.log('arr s', this.qs(arr));
-  }
-
-  qs(arr: number[]): number[] {
-    if (arr.length <= 1) {
-      return arr;
-    }
-
-    let p = arr[0];
-    let left = [];
-    let right = [];
-
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i] <= p) {
-        left.push(arr[i]);
-      } else {
-        right.push(arr[i]);
-      }
-    }
-    return [...this.qs(left), p, ...this.qs(right)];
+    let arr = [2, 1, 3, 0, 12, -7];
+    // console.log('arr un', arr);
+    console.log('arr :', Algorithms.fibonacci(4));
   }
 }

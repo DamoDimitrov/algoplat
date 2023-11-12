@@ -1,5 +1,9 @@
 {
   "HEADER_TITLE": "AlgoPlat",
+  "SUBMIT_BUTTON": "Submit",
+  "INPUT_LABEL": "Input",
+  "RESULT_LABEL": "Result",
+  "ENTER_DATA_LABEL": "Enter Data",
   "algorithmTypes": [
     {
       "label": "Sorting",
@@ -8,7 +12,8 @@
         {
           "label": "Quick Sort",
           "value": "quicksort",
-          "sourceCode": ""
+          "sourceCode": "",
+          "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
         },
         {
           "label": "Bubble Sort",
@@ -32,11 +37,6 @@
           "sourceCode": ""
         },
         {
-          "label": "Interval Search",
-          "value": "intervalsearch",
-          "sourceCode": ""
-        },
-        {
           "label": "Binary Search",
           "value": "binarysearch",
           "sourceCode": ""
@@ -48,8 +48,13 @@
       "value": "recursive",
       "algorithms": [
         {
-          "label": "",
-          "value": "",
+          "label": "Factorial",
+          "value": "factorial",
+          "sourceCode": ""
+        },
+        {
+          "label": "Fibonacci Sequence",
+          "value": "fibonaccisequence",
           "sourceCode": ""
         }
       ]
@@ -59,8 +64,18 @@
       "value": "hashing",
       "algorithms": [
         {
-          "label": "",
-          "value": "",
+          "label": "MD5",
+          "value": "md5",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-1",
+          "value": "sha-1",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-256",
+          "value": "sha-256",
           "sourceCode": ""
         }
       ]
@@ -70,8 +85,13 @@
       "value": "randomized",
       "algorithms": [
         {
-          "label": "",
-          "value": "",
+          "label": "Monte Carlo Integration",
+          "value": "montecarlointegration",
+          "sourceCode": ""
+        },
+        {
+          "label": "Las Vegas Quicksort Integration",
+          "value": "lasvegasintegration",
           "sourceCode": ""
         }
       ]

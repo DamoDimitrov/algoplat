@@ -1,10 +1,5 @@
-import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -12,13 +7,24 @@ import {
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
+  @Input()
+  input: any[] = [];
+
+  @Input()
+  result: number[] = [];
+
+  @Output()
+  submitData = new EventEmitter();
+
   dataForm = this.fb.group({
     data: new FormControl(''),
   });
 
   constructor(private fb: FormBuilder) {}
 
-  getUserData(): void {
-    console.log(this.dataForm.value.data);
+  ngOnInit(): void {}
+
+  submitUserData(): void {
+    this.submitData.emit(this.dataForm.value.data);
   }
 }
