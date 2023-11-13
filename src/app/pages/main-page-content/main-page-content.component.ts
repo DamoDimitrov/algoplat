@@ -8,7 +8,7 @@ import { Algorithms } from 'src/app/common/algorithms';
   styleUrls: ['./main-page-content.component.scss'],
 })
 export class MainPageContentComponent {
-  @ViewChild('canvas') canvas!: ElementRef;
+  // @ViewChild('canvas') canvas!: ElementRef;
 
   input: number[] = [7, 9, 0, 0, 12, -5, 3, -7];
   result: any[] = [-7, -5, 0, 0, 3, 7, 12];
@@ -16,8 +16,7 @@ export class MainPageContentComponent {
   count = this.input.length;
 
   ngAfterViewInit(): void {
-    const c = this.canvas.nativeElement.getContext('2d');
-
+    // const c = this.canvas.nativeElement.getContext('2d');
     //creates rectangle
   }
 

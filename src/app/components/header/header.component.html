@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
   <div class="container-fluid">
     <!-- Logo -->
-    <a class="navbar-brand" href="#">{{'HEADER_TITLE' | translate}}</a>
+    <a class="navbar-brand" routerLink="/home">{{'HEADER_TITLE' | translate}}</a>
     <!-- End of Logo -->
     <div class="d-flex">
       <div class="ms-lg-auto">
@@ -14,8 +14,8 @@
             </a>
             <ul class="dropdown-menu">
               <li *ngFor="let language of languages">
-                <a (click)="languageChangeEvent(language.value)" class="dropdown-item" href="#">{{'language.label' |
-                  translate}}</a>
+                <a (click)="languageChangeEvent(language.value)" class="dropdown-item" href="#">{{ language.label |
+                  translate }}</a>
               </li>
             </ul>
           </li>
@@ -34,7 +34,8 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav navbar-center">
         <li class="nav-item" *ngFor="let type of typesOfAlgorithms">
-          <button (click)="typeChangeEvent(type)" class="nav-link active" aria-current="page">{{type.label |
+          <button [routerLink]="type.value" (click)="typeChangeEvent(type)" class="nav-link active"
+            aria-current="page">{{type.label |
             translate}}</button>
         </li>
       </ul>

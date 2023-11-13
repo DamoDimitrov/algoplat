@@ -9,9 +9,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MainPageContentComponent } from './components/main-page-content/main-page-content.component';
-import { InputComponent } from './components/main-page-content/input/input.component';
+import { MainPageContentComponent } from './pages/main-page-content/main-page-content.component';
+import { InputComponent } from './pages/main-page-content/input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SidebarComponent,
     MainPageContentComponent,
     InputComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,13 @@
-<app-header (emitTypeChange)="handleTypeChange($event)"
-    (emitLanguageChange)="handleLanguageChange($event)"></app-header>
+<app-header (emitTypeChange)="handleTypeChange($event)" (emitLanguageChange)="handleLanguageChange($event)">
+</app-header>
 <div class="container-fluid">
-    <div style="height: calc(100vh - 56px);" class="row">
-        <div class="col-2 asd shadow-lg" *ngIf="false">
+    <div class="row" style="height: 10000px; padding-top: 56px;">
+        <div class="col-2 asd shadow-lg" *ngIf="!isSidebarHidden">
             <app-sidebar [selectedAlgorithmType]="selectedAlgorithmType"></app-sidebar>
         </div>
-        <div class="col-10">
-            <app-main-page-content></app-main-page-content>
+        <div [ngClass]="isSidebarHidden? 'col-12' : 'col-10'">
+            <router-outlet></router-outlet>
+            <!-- <app-main-page-content></app-main-page-content> -->
         </div>
     </div>
 </div>

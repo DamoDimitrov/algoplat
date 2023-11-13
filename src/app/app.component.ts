@@ -1,7 +1,6 @@
-import { Component, IterableDiffers } from '@angular/core';
+import { Component, IterableDiffers, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { first } from 'rxjs';
-import { Algorithms } from './common/algorithms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +11,7 @@ export class AppComponent {
   //Sets en as default lang and gets the local browser lang
   defaultLanguage = 'en';
   locale = this.translate.getBrowserLang() || '';
+  isSidebarHidden = true;
 
   selectedAlgorithmType: object = {};
 
@@ -27,17 +27,14 @@ export class AppComponent {
 
   handleTypeChange(type: object): void {
     this.selectedAlgorithmType = type;
+    this.isSidebarHidden = false;
   }
 
   handleLanguageChange(lang: string): void {
-    console.log('app', lang);
-
     this.translate.use(lang);
   }
 
   test(): void {
     let arr = [2, 1, 3, 0, 12, -7];
-    // console.log('arr un', arr);
-    console.log('arr :', Algorithms.fibonacci(4));
   }
 }
