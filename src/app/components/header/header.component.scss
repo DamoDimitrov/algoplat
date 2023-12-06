@@ -4,6 +4,7 @@
 }
 
 nav {
+  height: 3.5rem;
   background-color: grey;
   display: flex;
   font-size: 1.2em;
@@ -43,10 +44,6 @@ nav {
   cursor: pointer;
 }
 
-//.lang-container:hover .lang-dropdown {
-//  display: flex;
-//}
-
 .lang-toggler {
   margin: 1rem 0;
 }
@@ -84,9 +81,10 @@ nav {
 }
 
 .right-nav > li {
-  text-align: center;
   list-style-type: none;
-  padding: 0.4em;
+  margin: auto;
+  height: fit-content;
+  padding: 0.3em 0.5em;
 }
 
 .right-nav > li:hover {
@@ -126,6 +124,7 @@ nav {
   .right-nav > li {
     padding: 0.5em;
     background-color: #313438;
+    width: 100%;
   }
 
   .right-nav > li:hover {
