@@ -1,33 +1,33 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">{{headerTitle}}</a>
-    <div class="d-flex">
-      <div class="ms-lg-auto">
-        <!-- Language Dropdown -->
-        <ul class="navbar-nav overflow-visible">
-          <li class="nav-item dropdown">
-            <a class="nav-link btn btn-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Language
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">English</a></li>
-              <li><a class="dropdown-item" href="#">Български</a></li>
-              <!-- Add more language options here -->
-            </ul>
-          </li>
-        </ul>
+<nav>
+  <div class="left-nav-wrapper">
+    <div class="left-nav">
+      <!--    Logo/Home Button-->
+      <a [routerLink]="'/home'"><img id="logo" src="assets/svgs/logo.svg" alt=""></a>
+      <!--      Language Dropdown Start-->
+      <div class="lang-container">
+        <div class="lang-toggler"
+             (click)="onClickToggleLangMenu()">Languages</div>
+        <div class="lang-dropdown" [ngClass]="{show: isLanguageMenuCollapsed}">
+          <button class="lang-button"
+                  *ngFor="let language of languages"
+                  (click)="onClickToggleLangMenu()">
+            {{language.label}}
+          </button>
+        </div>
       </div>
-      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!--        Language Dropdown End-->
     </div>
-
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav navbar-center">
-        <li class="nav-item" *ngFor="let type of typesOfAlgorithms">
-          <a class="nav-link active" aria-current="page">{{type.label}}</a>
-        </li>
-      </ul>
-    </div>
+    <label (change)="changeAlgorithmTypesMenuDisplay()" class="burger-btn">
+      <input type="checkbox" [checked]="isRightMenuCollapsed">
+    </label>
   </div>
+<!--  Algorithm Types List Start-->
+  <ul class="right-nav" [ngClass]="{show: isRightMenuCollapsed}">
+    <li *ngFor="let algo of typesOfAlgorithms">
+      <a (click)="onClickHideTypesMenu()"
+         [routerLink]="algo.value">
+        {{algo.label}}</a>
+    </li>
+  </ul>
+<!--  Algorithm Types List End-->
 </nav>

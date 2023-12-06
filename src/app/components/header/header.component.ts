@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ENGLISH} from "../../common/English";
+import {Component, OnInit} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+import {LANGUAGES} from "../../common/languages";
 
 @Component({
   selector: 'app-header',
@@ -7,19 +8,48 @@ import {ENGLISH} from "../../common/English";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  headerTitle = ENGLISH.HEADER_TITLE;
+  languages = LANGUAGES;
+  typesOfAlgorithms: any;
 
-  typesOfAlgorithms = [
-    {label:'Sorting', route:'#sorting'},
-    {label:'Searching', route: '#searching'},
-    {label:'Recursive', route:'#recursive'},
-    {label:'Hashing', route:'#hashing'},
-    {label:'Randomized', route:'#randomized'}
-  ]
+  isRightMenuCollapsed = false;
+  isLanguageMenuCollapsed = false;
 
-  constructor() { }
+  // @Output()
+  // emitTypeChange = new EventEmitter();
+  // @Output()
+  // emitLanguageChange = new EventEmitter();
 
-  ngOnInit(): void {
+  constructor(private translate: TranslateService) {
   }
 
+  ngOnInit(): void {
+    this.fetchAlgorithmTypes();
+  }
+
+  fetchAlgorithmTypes(): void {
+    this.translate.get('algorithmTypes').subscribe((result) => {
+      this.typesOfAlgorithms = result;
+    });
+  }
+
+  // typeChangeEvent(event: any): void {
+  //   this.emitTypeChange.emit(event);
+  // }
+
+  // languageChangeEvent(lang: string): void {
+  //   this.emitLanguageChange.emit(lang);
+  //   console.log('header', lang);
+  // }
+
+  changeAlgorithmTypesMenuDisplay() {
+    this.onClickHideTypesMenu()
+  }
+
+  onClickHideTypesMenu() {
+    this.isRightMenuCollapsed = !this.isRightMenuCollapsed;
+  }
+
+  onClickToggleLangMenu() {
+    this.isLanguageMenuCollapsed = !this.isLanguageMenuCollapsed;
+  }
 }

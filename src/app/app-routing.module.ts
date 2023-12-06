@@ -1,10 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainPageContentComponent } from './pages/main-page-content/main-page-content.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: MainPageContentComponent },
+  {
+    path: 'home',
+    component: NotFoundComponent,
+  },
+  { path: 'sorting', component: MainPageContentComponent },
+  { path: 'searching', component: MainPageContentComponent },
+  { path: 'recursive', component: MainPageContentComponent },
+  { path: 'hashing', component: MainPageContentComponent },
+  { path: 'randomized', component: MainPageContentComponent },
+  { path: '**', component: NotFoundComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

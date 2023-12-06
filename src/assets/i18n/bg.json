@@ -1,0 +1,80 @@
+{
+  "HEADER_TITLE": "AlgoPlat",
+  "algorithmTypes": [
+    {
+      "label": "Сортиращи",
+      "value": "sorting",
+      "algorithms": [
+        {
+          "label": "Quick Sort",
+          "value": "quicksort",
+          "sourceCode": ""
+        },
+        {
+          "label": "Bubble Sort",
+          "value": "bubblesort",
+          "sourceCode": ""
+        },
+        {
+          "label": "Merge Sort",
+          "value": "mergesort",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Търсещи",
+      "value": "searching",
+      "algorithms": [
+        {
+          "label": "Sequential Search",
+          "value": "sequentialsearch",
+          "sourceCode": ""
+        },
+        {
+          "label": "Interval Search",
+          "value": "intervalsearch",
+          "sourceCode": ""
+        },
+        {
+          "label": "Binary Search",
+          "value": "binarysearch",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Рекурсивни",
+      "value": "recursive",
+      "algorithms": [
+        {
+          "label": "",
+          "value": "",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Хеширащи",
+      "value": "hashing",
+      "algorithms": [
+        {
+          "label": "",
+          "value": "",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Рандомизирани",
+      "value": "randomized",
+      "algorithms": [
+        {
+          "label": "",
+          "value": "",
+          "sourceCode": ""
+        }
+      ]
+    }
+  ]
+}

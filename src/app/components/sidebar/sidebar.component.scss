@@ -1,0 +1,18 @@
+button.nav-link:hover {
+  background-color: #313438;
+  color: #fff;
+}
+
+button.nav-link {
+  color: black;
+  background-color: transparent;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+button.active {
+  background-color: #313438 !important;
+  color: #fff !important;
+}

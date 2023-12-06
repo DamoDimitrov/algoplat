@@ -1,0 +1,21 @@
+.wrapper {
+  height: calc(100vh - 56px);
+}
+
+.header {
+  height: 20%;
+}
+
+.main-content {
+  height: 50%;
+}
+
+.footer {
+  height: 30%;
+}
+
+canvas {
+  height: 100%;
+  max-width: 100%;
+  border: 2px solid black;
+}
