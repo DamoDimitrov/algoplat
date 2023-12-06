@@ -6,5 +6,5 @@ export const LANGUAGES = [
   {
     label: 'Български',
     value: 'bg',
-  },
+  }
 ];
