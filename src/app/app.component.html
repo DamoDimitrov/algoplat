@@ -1,2 +1,5 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<app-header (emitTypeChange)="handleTypeChange($event)"></app-header>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+

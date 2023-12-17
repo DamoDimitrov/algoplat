@@ -7,13 +7,8 @@ const routes: Routes = [
   { path: '', component: MainPageContentComponent },
   {
     path: 'home',
-    component: NotFoundComponent,
+    component: MainPageContentComponent,
   },
-  { path: 'sorting', component: MainPageContentComponent },
-  { path: 'searching', component: MainPageContentComponent },
-  { path: 'recursive', component: MainPageContentComponent },
-  { path: 'hashing', component: MainPageContentComponent },
-  { path: 'randomized', component: MainPageContentComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

@@ -1,5 +1,6 @@
 {
   "HEADER_TITLE": "AlgoPlat",
+  "WELCOMING_MESSAGE": "Explore the world of algorithms with interactive animations and insightful explanations. Whether you're a learner or enthusiast, join us in unraveling the magic of sorting, searching, recursion, hashing, and randomness. Start your journey now and witness the elegance of algorithms in motion. Happy exploring!",
   "SUBMIT_BUTTON": "Submit",
   "INPUT_LABEL": "Input",
   "RESULT_LABEL": "Result",
@@ -7,91 +8,91 @@
   "algorithmTypes": [
     {
       "label": "Sorting",
-      "value": "sorting",
+      "source": "sorting",
       "algorithms": [
         {
           "label": "Quick Sort",
-          "value": "quicksort",
+          "source": "quicksort",
           "sourceCode": "",
           "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
         },
         {
           "label": "Bubble Sort",
-          "value": "bubblesort",
+          "source": "bubblesort",
           "sourceCode": ""
         },
         {
           "label": "Merge Sort",
-          "value": "mergesort",
+          "source": "mergesort",
           "sourceCode": ""
         }
       ]
     },
     {
       "label": "Searching",
-      "value": "searching",
+      "source": "searching",
       "algorithms": [
         {
           "label": "Sequential Search",
-          "value": "sequentialsearch",
+          "source": "sequentialsearch",
           "sourceCode": ""
         },
         {
           "label": "Binary Search",
-          "value": "binarysearch",
+          "source": "binarysearch",
           "sourceCode": ""
         }
       ]
     },
     {
       "label": "Recursive",
-      "value": "recursive",
+      "source": "recursive",
       "algorithms": [
         {
           "label": "Factorial",
-          "value": "factorial",
+          "source": "factorial",
           "sourceCode": ""
         },
         {
           "label": "Fibonacci Sequence",
-          "value": "fibonaccisequence",
+          "source": "fibonaccisequence",
           "sourceCode": ""
         }
       ]
     },
     {
       "label": "Hashing",
-      "value": "hashing",
+      "source": "hashing",
       "algorithms": [
         {
           "label": "MD5",
-          "value": "md5",
+          "source": "md5",
           "sourceCode": ""
         },
         {
           "label": "SHA-1",
-          "value": "sha-1",
+          "source": "sha-1",
           "sourceCode": ""
         },
         {
           "label": "SHA-256",
-          "value": "sha-256",
+          "source": "sha-256",
           "sourceCode": ""
         }
       ]
     },
     {
       "label": "Randomized",
-      "value": "randomized",
+      "source": "randomized",
       "algorithms": [
         {
           "label": "Monte Carlo Integration",
-          "value": "montecarlointegration",
+          "source": "montecarlointegration",
           "sourceCode": ""
         },
         {
           "label": "Las Vegas Quicksort Integration",
-          "value": "lasvegasintegration",
+          "source": "lasvegasintegration",
           "sourceCode": ""
         }
       ]

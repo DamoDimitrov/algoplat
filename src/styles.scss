@@ -1,3 +1,9 @@
+:root {
+  --main-bg-color: #1b4e73;
+  --main-text-color: white;
+  --main-bg-color-lighter: #226ca2;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +15,17 @@ a {
 }
 
 .container {
-  height: calc(100vh - 3.5rem);
-  padding: 3.5rem 15rem 0;
+  height: fit-content;
+  min-height: calc(100vh - 3.5em);
+  padding: 3.5rem 15% 0;
+  background-color: #e3e3e3;
+}
+
+.content-wrapper {
+  width: inherit;
+  background: var(--main-text-color);
+  box-shadow: 0 0.5em 25px grey;
+  padding: 1em 0 1em 0;
+  font-size: 5vw;
+  border-radius: 5px;
 }

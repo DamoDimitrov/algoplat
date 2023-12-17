@@ -8,6 +8,5 @@ import { CommonModule } from '@angular/common';
 })
 export class NotFoundComponent {
   ngOnInit() {
-    console.log(window.history.state);
   }
 }
