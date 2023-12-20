@@ -1,10 +1,12 @@
 {
   "HEADER_TITLE": "AlgoPlat",
   "WELCOMING_MESSAGE": "Explore the world of algorithms with interactive animations and insightful explanations. Whether you're a learner or enthusiast, join us in unraveling the magic of sorting, searching, recursion, hashing, and randomness. Start your journey now and witness the elegance of algorithms in motion. Happy exploring!",
-  "SUBMIT_BUTTON": "Submit",
-  "INPUT_LABEL": "Input",
-  "RESULT_LABEL": "Result",
-  "ENTER_DATA_LABEL": "Enter Data",
+  "HOME_LABEL": "Home",
+  "LANGUAGES_LABEL": "Languages",
+  "UNI_NAME_LABEL": "PU \"Paisii Hilendarski\"",
+  "FACULTY_NAME_LABEL": "Faculty of Physics and Technology",
+  "AUTHOR_NAME_LABEL": "Damyan Dimitrov",
+  "YEAR_LABEL": "2024",
   "algorithmTypes": [
     {
       "label": "Sorting",
@@ -61,26 +63,48 @@
       ]
     },
     {
-      "label": "Hashing",
-      "source": "hashing",
-      "algorithms": [
+      "label": "Data Structures",
+      "source": "data-structures",
+      "structures": [
         {
-          "label": "MD5",
-          "source": "md5",
+          "label": "Stack",
+          "source": "stack",
           "sourceCode": ""
         },
         {
-          "label": "SHA-1",
-          "source": "sha-1",
+          "label": "Queue",
+          "source": "queue",
           "sourceCode": ""
         },
         {
-          "label": "SHA-256",
-          "source": "sha-256",
-          "sourceCode": ""
-        }
+          "label": "Array",
+          "source": "array",
+          "sourceCode": ""}
       ]
-    },
+    }
+  ],
+  "advancedAlgorithms": [
+    {
+    "label": "Hashing",
+    "source": "hashing",
+    "algorithms": [
+      {
+        "label": "MD5",
+        "source": "md5",
+        "sourceCode": ""
+      },
+      {
+        "label": "SHA-1",
+        "source": "sha-1",
+        "sourceCode": ""
+      },
+      {
+        "label": "SHA-256",
+        "source": "sha-256",
+        "sourceCode": ""
+      }
+    ]
+  },
     {
       "label": "Randomized",
       "source": "randomized",
@@ -96,6 +120,7 @@
           "sourceCode": ""
         }
       ]
-    }
-  ]
+    }]
 }
+
+

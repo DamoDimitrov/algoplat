@@ -1,80 +1,124 @@
 {
   "HEADER_TITLE": "AlgoPlat",
+  "WELCOMING_MESSAGE": "Explore the world of algorithms with interactive animations and insightful explanations. Whether you're a learner or enthusiast, join us in unraveling the magic of sorting, searching, recursion, hashing, and randomness. Start your journey now and witness the elegance of algorithms in motion. Happy exploring!",
+  "HOME_LABEL": "Начало",
+  "LANGUAGES_LABEL": "Езици",
+  "UNI_NAME_LABEL":"ПУ „Паисий Хилендарски“",
+  "FACULTY_NAME_LABEL":"Физико-технологичен факултет",
+  "AUTHOR_NAME_LABEL":"Дамян Димитров",
+  "YEAR_LABEL":"2024",
   "algorithmTypes": [
     {
       "label": "Сортиращи",
-      "value": "sorting",
+      "source": "sorting",
       "algorithms": [
         {
-          "label": "Quick Sort",
-          "value": "quicksort",
+          "label": "Бързо Сортиране",
+          "source": "quicksort",
+          "sourceCode": "",
+          "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
+        },
+        {
+          "label": "Бъбъл Сортиране",
+          "source": "bubblesort",
           "sourceCode": ""
         },
         {
-          "label": "Bubble Sort",
-          "value": "bubblesort",
-          "sourceCode": ""
-        },
-        {
-          "label": "Merge Sort",
-          "value": "mergesort",
+          "label": "Мърдж Сортиране",
+          "source": "mergesort",
           "sourceCode": ""
         }
       ]
     },
     {
       "label": "Търсещи",
-      "value": "searching",
+      "source": "searching",
       "algorithms": [
         {
-          "label": "Sequential Search",
-          "value": "sequentialsearch",
+          "label": "Линейно Търсене",
+          "source": "sequentialsearch",
           "sourceCode": ""
         },
         {
-          "label": "Interval Search",
-          "value": "intervalsearch",
-          "sourceCode": ""
-        },
-        {
-          "label": "Binary Search",
-          "value": "binarysearch",
+          "label": "Бинарно Търсене",
+          "source": "binarysearch",
           "sourceCode": ""
         }
       ]
     },
     {
       "label": "Рекурсивни",
-      "value": "recursive",
+      "source": "recursive",
       "algorithms": [
         {
-          "label": "",
-          "value": "",
+          "label": "Факториален",
+          "source": "factorial",
+          "sourceCode": ""
+        },
+        {
+          "label": "Последователност на Фибоначи",
+          "source": "fibonaccisequence",
           "sourceCode": ""
         }
       ]
     },
     {
-      "label": "Хеширащи",
-      "value": "hashing",
-      "algorithms": [
+      "label": "Структури от данни",
+      "source": "data-structures",
+      "structures": [
         {
-          "label": "",
-          "value": "",
+          "label": "Стек",
+          "source": "stack",
           "sourceCode": ""
-        }
-      ]
-    },
-    {
-      "label": "Рандомизирани",
-      "value": "randomized",
-      "algorithms": [
+        },
         {
-          "label": "",
-          "value": "",
+          "label": "Опашка",
+          "source": "queue",
           "sourceCode": ""
-        }
+        },
+        {
+          "label": "Масив",
+          "source": "array",
+          "sourceCode": ""}
       ]
     }
-  ]
+  ],
+  "advancedAlgorithms": [
+    {
+      "label": "Хеширащи",
+      "source": "hashing",
+      "algorithms": [
+        {
+          "label": "MD5",
+          "source": "md5",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-1",
+          "source": "sha-1",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-256",
+          "source": "sha-256",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "На случаен принцип",
+      "source": "randomized",
+      "algorithms": [
+        {
+          "label": "Монте Карло Интеграция",
+          "source": "montecarlointegration",
+          "sourceCode": ""
+        },
+        {
+          "label": "Лас Вегас Куиксорт Интеграция",
+          "source": "lasvegasintegration",
+          "sourceCode": ""
+        }
+      ]
+    }]
 }
