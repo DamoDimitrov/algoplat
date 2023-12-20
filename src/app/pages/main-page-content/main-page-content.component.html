@@ -6,12 +6,12 @@
       the journey now!</p>
   </div>
   <div class="algorithm-cards-wrapper">
-    <div class="card">
-      <h3>Algo Name</h3>
-      <a href="">
-        <img src="" alt="">
+    <div class="card"
+    *ngFor="let algorithm of featuredAlgorithms">
+      <h1>{{algorithm.label}}</h1>
+      <a [routerLink]="algorithm.source">
+<!--        <img src="{{algorithm.imgSource}}" alt="">-->
       </a>
     </div>
   </div>
-  <div class="algorithm-information-wrapper">Brief Algo explanation and info</div>
 </div>

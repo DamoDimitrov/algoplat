@@ -10,10 +10,10 @@
 .welcoming-banner-wrapper {
   color: var(--main-text-color);
   padding: 1em 1em;
-  background-image: linear-gradient(45deg, #a25af8, #4f4fff, #80d6ff, #93daff);
-  background-size: 200%;
+  background-image: linear-gradient(75deg, #a25af8, #8572ff, #748bfc, #7ab1fa, #748bfc, #8572ff, #a25af8);
+  background-size: 400%;
   background-position: left;
-  animation: background-animation 5s ease-in-out infinite;
+  animation: background-animation 20s ease-in-out infinite;
   .header-logo {
     font-size: 0.8em;
     text-align: center;
@@ -29,4 +29,34 @@
 
 .content-wrapper {
   padding: 0;
+}
+
+.algorithm-cards-wrapper {
+  display: flex;
+  padding: 0.2em 0.4em;
+  justify-content: space-between;
+  .card {
+    justify-content: center;
+    padding: 0.2em 0.3em;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    h1 {
+      font-size: 0.3em;
+    }
+
+    a {
+      margin-top: 0.2em;
+      display: inline-block;
+      content: '';
+      width: 2.5em;
+      height: 2em;
+      background-color: red;
+    }
+
+    img {
+      width: 2em;
+      background-color: red;
+    }
+  }
 }
