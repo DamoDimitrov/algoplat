@@ -23,9 +23,10 @@
       <!--      Language Dropdown Start-->
       <div class="lang-container"
            (click)="onClickToggleLangMenu()">
-        <div class="lang-toggler">Languages</div>
+        <div class="lang-toggler">{{"LANGUAGES_LABEL" | translate}}</div>
         <div class="lang-dropdown" [ngClass]="{show: isLanguageMenuCollapsed}">
           <button class="lang-button"
+                  (click)="languageChangeEvent(language.value)"
                   *ngFor="let language of languages">
             {{language.label}}
           </button>
@@ -40,20 +41,20 @@
   <!--  Algorithm Types List Start-->
   <div class="right-nav" [ngClass]="{show: isRightMenuCollapsed}">
     <div class="category" (click)="onClickToggleTypesMenu()">
-      <a [routerLink]="'/home'">Home</a>
+      <a [routerLink]="'/home'">{{"HOME_LABEL" | translate}}</a>
     </div>
     <div #categoryDiv
          class="category"
          *ngFor="let category of typesOfAlgorithms"
          (click)="toggleAlgorithmsByCategoryMenu(categoryDiv)">
       <div class="category-label">
-        <a >{{category.label}}</a>
+        <a >{{category.label | translate}}</a>
         <p><i id="arrow" class="arrow right"></i></p>
       </div>
       <div class="algo-type-dropdown">
         <a [routerLink]="algo.source"
-           *ngFor="let algo of category.algorithms"
-           (click)="onClickToggleTypesMenu()">{{algo.label}}</a>
+           *ngFor="let algo of category.algorithms? category.algorithms : category.structures"
+           (click)="onClickToggleTypesMenu()">{{algo.label | translate}}</a>
       </div>
     </div>
   </div>
