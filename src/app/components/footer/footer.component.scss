@@ -1,0 +1,26 @@
+.content-wrapper {
+  color: var(--main-text-color);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--main-bg-color);
+  border-radius: 0;
+}
+
+.information-wrapper {
+  width: 10em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+a {
+  display: inline-block;
+  color: var(--main-text-color);
+}
+
+a:hover {
+  scale: 1.03;
+}

@@ -10,12 +10,15 @@ export class SidebarComponent implements OnInit {
   selectedAlgorithmType: any = {};
 
   algorithms: any[];
+  @Input()
+  isHidden = true;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   ngOnChanges() {
+    console.log(this.selectedAlgorithmType)
     this.algorithms = this.selectedAlgorithmType.algorithms;
   }
 }

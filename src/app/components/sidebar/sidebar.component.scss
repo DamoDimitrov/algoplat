@@ -1,18 +1,28 @@
-button.nav-link:hover {
-  background-color: #313438;
-  color: #fff;
+ul {
+  left: -1em;
+  opacity: 0;
+  padding-top:  3em;
+  height: calc(100vh - 3.5rem);
+  top: 3.5rem;
+  width: 15%;
+  background-color: #e9f8ff;
+  position: fixed;
+  //box-shadow: 5px 0 15px #2589d5;
+  transition: left 0.3s, opacity 0.3s;
+  //clip-path: inset(0 -15px 0 0);
 }
 
-button.nav-link {
-  color: black;
-  background-color: transparent;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+.show {
+  left: 0;
+  opacity: 1;
+}
+
+li {
+  list-style-type: none;
+  padding: 2em;
   text-align: center;
 }
 
-button.active {
-  background-color: #313438 !important;
-  color: #fff !important;
+li:hover {
+  background-color: #1b4e73;
 }

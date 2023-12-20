@@ -1,8 +1,5 @@
-<!--<div *ngIf="algorithms" class="nav flex-column nav-pills me-3 sidebar-outer" id="v-pills-tab" role="tablist"-->
-<!--        aria-orientation="vertical">-->
-<!--        <button class="nav-button" *ngFor="let algorithm of algorithms" class="nav-link" id="v-pills-home-tab"-->
-<!--                data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab"-->
-<!--                aria-controls="v-pills-home" aria-selected="true">{{algorithm.label}}-->
-<!--        </button>-->
-<!--</div>-->
-<div></div>
+<ul [ngClass]="{'show': isHidden === false}">
+  <li *ngFor="let algo of algorithms">
+    {{algo.label}}
+  </li>
+</ul>

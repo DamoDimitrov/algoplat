@@ -1,31 +1,17 @@
-<!-- <div class="container-fluid border wrapper">
-    <div class="row header m-2 p-2 border rounded">
-        <div class="col text-center">Quick Sort is a widely known and highly efficient algorithm for sorting large
-            datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but
-            it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into
-            smaller subarrays based on a pivot</div>
+<div class="content-wrapper">
+  <div class="welcoming-banner-wrapper">
+    <h1 class="header-logo">ALGOPLAT</h1>
+    <p>Explore algorithm magic at <b>Algoplat</b>! Unravel sorting, searching, recursion, hashing, and randomness. </p>
+    <p>Start
+      the journey now!</p>
+  </div>
+  <div class="algorithm-cards-wrapper">
+    <div class="card"
+    *ngFor="let algorithm of featuredAlgorithms">
+      <h1>{{algorithm.label}}</h1>
+      <a [routerLink]="algorithm.source">
+<!--        <img src="{{algorithm.imgSource}}" alt="">-->
+      </a>
     </div>
-    <div class="row main-content">
-        Animation container
-        <div class="col-8 text-center">
-            <canvas #canvas></canvas>
-        </div>
-        End of Animation Container
-        User Input Data
-        <div class="col">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <app-input [result]="result" [input]="input" (submitData)="handleUserData($event)">
-                        </app-input>
-                    </div>
-                </div>
-            </div>
-        </div>
-        End of User Input Data
-    </div>
-    <div class="row footer bg-success">
-        <div class="col text-center">SOURCE CODE</div>
-    </div>
-</div> -->
-Some Text
+  </div>
+</div>
