@@ -13,6 +13,7 @@ import { MainPageContentComponent } from './pages/main-page-content/main-page-co
 import { InputComponent } from './pages/main-page-content/input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import {FooterComponent} from "./components/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MainPageContentComponent,
     InputComponent,
     NotFoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
+      defaultLanguage: 'bg',
+      useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
@@ -43,5 +47,5 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 export class AppModule {}
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

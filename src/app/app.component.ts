@@ -1,6 +1,5 @@
-import { Component, IterableDiffers, inject } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute } from '@angular/router';
+import {ChangeDetectorRef, Component} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,32 +8,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   //Sets en as default lang and gets the local browser lang
-  defaultLanguage = 'en';
-  locale = this.translate.getBrowserLang() || '';
-  isSidebarHidden = true;
+  defaultLanguage = 'bg';
 
   selectedAlgorithmType: object = {};
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService,
+              private cdr: ChangeDetectorRef) {
     this.translate.setDefaultLang(this.defaultLanguage);
     this.translate.addLangs(['en', 'bg']);
-    this.translate.use(this.locale);
+    this.translate.use(this.defaultLanguage);
   }
 
   ngOnInit() {
-    this.test();
-  }
-
-  handleTypeChange(type: object): void {
-    this.selectedAlgorithmType = type;
-    this.isSidebarHidden = false;
   }
 
   handleLanguageChange(lang: string): void {
     this.translate.use(lang);
-  }
-
-  test(): void {
-    let arr = [2, 1, 3, 0, 12, -7];
   }
 }
