@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-main-page-content',
@@ -6,6 +7,13 @@ import {Component} from '@angular/core';
   styleUrls: ['./main-page-content.component.scss'],
 })
 export class MainPageContentComponent {
+
+  constructor(private translate: TranslateService) {
+  }
+
+  ngOnInit(): void {
+  }
+
   featuredAlgorithms = [
     {
       label: "Quick Sort",
@@ -18,6 +26,14 @@ export class MainPageContentComponent {
     }, {
       label: "Sequential Search",
       source: "sequentialsearch",
+      imgSource: ''
+    }, {
+      label: "Fibonacci Sequence",
+      source: "fibonaccisequence",
+      imgSource: ''
+    }, {
+      label: "Fibonacci Sequence",
+      source: "fibonaccisequence",
       imgSource: ''
     }, {
       label: "Fibonacci Sequence",
