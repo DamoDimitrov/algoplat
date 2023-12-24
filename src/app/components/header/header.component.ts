@@ -1,6 +1,8 @@
-import {ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {LANGUAGES} from "../../common/languages";
+import {AlgorithmsService} from "../../services/algorithms.service";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,11 @@ export class HeaderComponent implements OnInit {
   @Output()
   emitLanguageChange = new EventEmitter();
 
-  constructor(private translate: TranslateService) {
+  $destroy: Subject<void> = new Subject<void>();
+
+  constructor(private translate: TranslateService,
+              private algorithmService: AlgorithmsService) {
+
   }
 
   ngOnInit(): void {
@@ -26,14 +32,15 @@ export class HeaderComponent implements OnInit {
   }
 
   fetchAlgorithmTypes(): void {
-    this.translate.get('algorithmTypes').subscribe((result) => {
-      this.typesOfAlgorithms = result;
-    });
+    this.algorithmService.getAllCategoriesAndAlgorithms()
+      .pipe(takeUntil(this.$destroy))
+      .subscribe(result =>
+        this.typesOfAlgorithms = result
+      );
   }
 
   languageChangeEvent(lang: string): void {
     this.emitLanguageChange.emit(lang);
-    this.fetchAlgorithmTypes();
   }
 
   onClickToggleTypesMenu() {
@@ -59,8 +66,8 @@ export class HeaderComponent implements OnInit {
       dropdown.classList.remove('show');
       return;
     }
-      dropdown.classList.add('show');
-      div.classList.add('active-category')
+    dropdown.classList.add('show');
+    div.classList.add('active-category')
   }
 
   private rotateAlgorithmsSubmenuArrow(i) {
@@ -68,12 +75,19 @@ export class HeaderComponent implements OnInit {
       i.classList.replace('right', 'down');
       return;
     }
-      i.classList.replace('down', 'right');
+    i.classList.replace('down', 'right');
   }
 
   private reFetchAlgoTypesOnLangChange() {
-    this.translate.onLangChange.subscribe(() => {
-     this.fetchAlgorithmTypes();
-    });
+    this.translate.onLangChange
+      .pipe(takeUntil(this.$destroy))
+      .subscribe(() => {
+        this.fetchAlgorithmTypes();
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.$destroy.next();
+    this.$destroy.complete();
   }
 }
