@@ -1,6 +1,7 @@
 {
-  "HEADER_TITLE": "AlgoPlat",
-  "WELCOMING_MESSAGE": "Explore the world of algorithms with interactive animations and insightful explanations. Whether you're a learner or enthusiast, join us in unraveling the magic of sorting, searching, recursion, hashing, and randomness. Start your journey now and witness the elegance of algorithms in motion. Happy exploring!",
+  "HEADER_TITLE": "Algoplat",
+  "WELCOMING_MESSAGE": "Изследвайте света на алгоритмите с интерактивни анимации и изчерпателни обяснения.",
+  "START_NOW_MESSAGE": "Започнете своето пътешествие сега!",
   "HOME_LABEL": "Начало",
   "LANGUAGES_LABEL": "Езици",
   "UNI_NAME_LABEL":"ПУ „Паисий Хилендарски“",
