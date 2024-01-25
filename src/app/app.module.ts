@@ -12,6 +12,7 @@ import { MainPageContentComponent } from './pages/main-page-content/main-page-co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {FooterComponent} from "./components/footer/footer.component";
+import {StackModule} from "./pages/stack/stack.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {FooterComponent} from "./components/footer/footer.component";
     FooterComponent,
   ],
   imports: [
+    StackModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
