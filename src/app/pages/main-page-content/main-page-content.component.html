@@ -1,15 +1,14 @@
 <div class="content-wrapper">
   <div class="welcoming-banner-wrapper">
-    <h1 class="header-logo">ALGOPLAT</h1>
-    <p>Explore algorithm magic at <b>Algoplat</b>! Unravel sorting, searching, recursion, hashing, and randomness. </p>
-    <p>Start
-      the journey now!</p>
+    <h1 class="header-logo">{{"HEADER_TITLE" | translate}}</h1>
+    <p>{{"WELCOMING_MESSAGE" | translate}}</p>
+    <p>{{"START_NOW_MESSAGE" | translate}}</p>
   </div>
   <div class="algorithm-cards-wrapper">
     <div class="card"
     *ngFor="let algorithm of featuredAlgorithms">
       <h1>{{algorithm.label}}</h1>
-      <a [routerLink]="algorithm.source">
+      <a [routerLink]="'/' + algorithm.source">
 <!--        <img src="{{algorithm.imgSource}}" alt="">-->
       </a>
     </div>

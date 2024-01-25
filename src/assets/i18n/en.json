@@ -1,6 +1,7 @@
 {
-  "HEADER_TITLE": "AlgoPlat",
-  "WELCOMING_MESSAGE": "Explore the world of algorithms with interactive animations and insightful explanations. Whether you're a learner or enthusiast, join us in unraveling the magic of sorting, searching, recursion, hashing, and randomness. Start your journey now and witness the elegance of algorithms in motion. Happy exploring!",
+  "HEADER_TITLE": "Algoplat",
+  "WELCOMING_MESSAGE": "Explore the world of algorithms with interactive animations and insightful explanations.",
+  "START_NOW_MESSAGE": "Start your journey now!",
   "HOME_LABEL": "Home",
   "LANGUAGES_LABEL": "Languages",
   "UNI_NAME_LABEL": "PU \"Paisii Hilendarski\"",
@@ -69,7 +70,8 @@
         {
           "label": "Stack",
           "source": "stack",
-          "sourceCode": ""
+          "sourceCode": "",
+          "information": "A stack is a fundamental data structure in computer science that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack is the first one to be removed."
         },
         {
           "label": "Queue",
