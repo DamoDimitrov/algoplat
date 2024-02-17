@@ -9,10 +9,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MainPageContentComponent } from './pages/main-page-content/main-page-content.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {FooterComponent} from "./components/footer/footer.component";
 import {StackModule} from "./pages/stack/stack.module";
+import {QueueModule} from "./pages/queue/queue.module";
+import {ArrayModule} from "./pages/array/array.module";
 
 @NgModule({
   declarations: [
@@ -23,12 +25,13 @@ import {StackModule} from "./pages/stack/stack.module";
     FooterComponent,
   ],
   imports: [
+    ArrayModule,
+    QueueModule,
     StackModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     TranslateModule.forRoot({
       defaultLanguage: 'bg',
       useDefaultLang: true,
