@@ -2,11 +2,11 @@ import {Component, ViewChild} from '@angular/core';
 import {AnimationComponent} from "./animation/animation.component";
 
 @Component({
-  selector: 'app-stack',
-  templateUrl: './stack.component.html',
-  styleUrl: './stack.component.scss'
+  selector: 'app-queue',
+  templateUrl: './queue.component.html',
+  styleUrl: './queue.component.scss'
 })
-export class StackComponent {
+export class QueueComponent {
   @ViewChild('animationComponent')
   animationComponent: AnimationComponent;
 
@@ -20,15 +20,15 @@ export class StackComponent {
   handlePopEvent() {
     if (this.animationComponent.activeAnimation === false) {
       this.animationComponent.activeAnimation = true;
-      this.animationComponent.popFromStack();
+      this.animationComponent.popFromQueue();
     }
   }
 
   handlePeekEvent() {
     if (this.animationComponent.activeAnimation === false) {
-      this.animationComponent.peekGoingUp = true;
+      this.animationComponent.peekGoingDown = true;
       this.animationComponent.activeAnimation = true;
-      this.animationComponent.peekFromStack();
+      this.animationComponent.peekFromQueue();
     }
   }
 }
