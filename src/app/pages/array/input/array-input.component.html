@@ -1,0 +1,47 @@
+<div class="wrapper" [formGroup]="form">
+  <!--  Left side to create array-->
+  <div class="form-wrapper" formGroupName="formData">
+    <input *ngIf="isCreationTypeData"
+           class="input-field"
+           formControlName="arrayData"
+           type="text"
+           placeholder="Ex. 1, 2, 3, 4">
+    <input *ngIf="!isCreationTypeData"
+           class="input-field"
+           formControlName="arraySize"
+           type="number"
+           placeholder="Ex. 5"
+           max="8"
+           min="1">
+
+    <div>
+      <button *ngIf="!isCreationTypeData"
+              class="btn"
+              (click)="changeCreationType()"
+      >Use Data
+      </button>
+      <button *ngIf="isCreationTypeData"
+              class="btn"
+              (click)="changeCreationType()"
+      >Use Size
+      </button>
+      <button class="btn" (click)="getArray()">Create Array</button>
+    </div>
+  </div>
+
+  <!--  Right side to manipulate array-->
+  <div class="form-wrapper" formGroupName="dataManipulation">
+    <input class="input-field column"
+           formControlName="valueToSet"
+           type="text"
+           placeholder="Value">
+    <input class="input-field column"
+           formControlName="indexToSet"
+           type="text"
+           placeholder="Index">
+    <button class="btn"
+            [ngClass]="{'btn-disabled': !isArrayCreated}"
+            [disabled]="!isArrayCreated"
+            (click)="setValue()">Set Value</button>
+  </div>
+</div>

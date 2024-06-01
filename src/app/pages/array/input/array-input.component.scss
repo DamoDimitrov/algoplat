@@ -54,3 +54,7 @@ label {
     flex-direction: column;
   }
 }
+
+.btn-disabled {
+  background-color: var(--light-grey);
+}

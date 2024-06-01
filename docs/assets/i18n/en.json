@@ -1,0 +1,128 @@
+{
+  "HEADER_TITLE": "Algoplat",
+  "WELCOMING_MESSAGE": "Explore the world of algorithms with interactive animations and insightful explanations.",
+  "START_NOW_MESSAGE": "Start your journey now!",
+  "HOME_LABEL": "Home",
+  "LANGUAGES_LABEL": "Languages",
+  "UNI_NAME_LABEL": "PU \"Paisii Hilendarski\"",
+  "FACULTY_NAME_LABEL": "Faculty of Physics and Technology",
+  "AUTHOR_NAME_LABEL": "Damyan Dimitrov",
+  "YEAR_LABEL": "2024",
+  "algorithmTypes": [
+    {
+      "label": "Sorting",
+      "source": "sorting",
+      "algorithms": [
+        {
+          "label": "Quick Sort",
+          "source": "quicksort",
+          "sourceCode": "",
+          "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
+        },
+        {
+          "label": "Bubble Sort",
+          "source": "bubblesort",
+          "sourceCode": ""
+        },
+        {
+          "label": "Merge Sort",
+          "source": "mergesort",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Searching",
+      "source": "searching",
+      "algorithms": [
+        {
+          "label": "Sequential Search",
+          "source": "sequentialsearch",
+          "sourceCode": ""
+        },
+        {
+          "label": "Binary Search",
+          "source": "binarysearch",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Recursive",
+      "source": "recursive",
+      "algorithms": [
+        {
+          "label": "Factorial",
+          "source": "factorial",
+          "sourceCode": ""
+        },
+        {
+          "label": "Fibonacci Sequence",
+          "source": "fibonaccisequence",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Data Structures",
+      "source": "data-structures",
+      "structures": [
+        {
+          "label": "Stack",
+          "source": "stack",
+          "sourceCode": "",
+          "information": "A stack is a fundamental data structure in computer science that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack is the first one to be removed."
+        },
+        {
+          "label": "Queue",
+          "source": "queue",
+          "sourceCode": ""
+        },
+        {
+          "label": "Array",
+          "source": "array",
+          "sourceCode": ""}
+      ]
+    }
+  ],
+  "advancedAlgorithms": [
+    {
+    "label": "Hashing",
+    "source": "hashing",
+    "algorithms": [
+      {
+        "label": "MD5",
+        "source": "md5",
+        "sourceCode": ""
+      },
+      {
+        "label": "SHA-1",
+        "source": "sha-1",
+        "sourceCode": ""
+      },
+      {
+        "label": "SHA-256",
+        "source": "sha-256",
+        "sourceCode": ""
+      }
+    ]
+  },
+    {
+      "label": "Randomized",
+      "source": "randomized",
+      "algorithms": [
+        {
+          "label": "Monte Carlo Integration",
+          "source": "montecarlointegration",
+          "sourceCode": ""
+        },
+        {
+          "label": "Las Vegas Quicksort Integration",
+          "source": "lasvegasintegration",
+          "sourceCode": ""
+        }
+      ]
+    }]
+}
+
+

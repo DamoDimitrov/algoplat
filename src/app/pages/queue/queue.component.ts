@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {AnimationComponent} from "./animation/animation.component";
+import {QueueAnimationComponent} from "./animation/queue-animation.component";
 
 @Component({
   selector: 'app-queue',
@@ -8,7 +8,7 @@ import {AnimationComponent} from "./animation/animation.component";
 })
 export class QueueComponent {
   @ViewChild('animationComponent')
-  animationComponent: AnimationComponent;
+  animationComponent: QueueAnimationComponent;
 
   handlePushEvent() {
     if (this.animationComponent.activeAnimation === false) {

@@ -4,10 +4,10 @@ import * as THREE from "three";
 
 @Component({
   selector: 'animation',
-  templateUrl: './animation.component.html',
-  styleUrl: './animation.component.scss'
+  templateUrl: './queue-animation.component.html',
+  styleUrl: './queue-animation.component.scss'
 })
-export class AnimationComponent {
+export class QueueAnimationComponent {
   @ViewChild('canvasElement')
   canvasRef: ElementRef;
 
@@ -50,7 +50,6 @@ export class AnimationComponent {
     this.renderer.setSize(this.sizes.width, this.sizes.height);
     this.renderer.setPixelRatio(2)
     this.renderer.setClearColor(0xffffff, 1);
-
   }
 
   ngAfterViewInit() {
@@ -66,7 +65,6 @@ export class AnimationComponent {
     this.drawStackBorders();
 
     this.renderer.render(this.scene, this.camera);
-
   }
 
   pushToQueue(rectangle): void {
@@ -152,7 +150,7 @@ export class AnimationComponent {
     if (this.isAtBottom(sq)) {
       this.peekGoingDown = false;
     }
-    
+
     const yAxis = Number(sq.position.y.toFixed(1));
     if (!this.isAtBottom(sq) && this.peekGoingDown) {
       sq.position.y -= 0.1;

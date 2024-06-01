@@ -15,6 +15,7 @@ import {FooterComponent} from "./components/footer/footer.component";
 import {StackModule} from "./pages/stack/stack.module";
 import {QueueModule} from "./pages/queue/queue.module";
 import {ArrayModule} from "./pages/array/array.module";
+import {QuickSortModule} from "./pages/sorting/quick-sort/quick-sort.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {ArrayModule} from "./pages/array/array.module";
     ArrayModule,
     QueueModule,
     StackModule,
+    QuickSortModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

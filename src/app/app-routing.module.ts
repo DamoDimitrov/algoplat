@@ -6,12 +6,22 @@ import {StackComponent} from "./pages/stack/stack.component";
 import {StackModule} from "./pages/stack/stack.module";
 import {QueueComponent} from "./pages/queue/queue.component";
 import {ArrayComponent} from "./pages/array/array.component";
+import {QuickSortComponent} from "./pages/sorting/quick-sort/quick-sort.component";
 
 const routes: Routes = [
   { path: '', component: MainPageContentComponent },
   {
     path: 'home',
     component: MainPageContentComponent,
+  },
+  {
+    path: 'sorting',
+    children: [
+      {
+        path: 'quickSort',
+        component: QuickSortComponent
+      }
+    ]
   },
   {
     path: 'stack',

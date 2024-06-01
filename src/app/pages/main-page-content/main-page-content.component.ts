@@ -17,27 +17,27 @@ export class MainPageContentComponent {
   featuredAlgorithms = [
     {
       label: "Quick Sort",
-      source: "quicksort",
-      imgSource: 'src/assets/imgs/Bubble-sort-0.png'
+      source: "sorting/quickSort",
+      imgSource: 'assets/imgs/Bubble-sort-0.png'
     }, {
       label: "Bubble Sort",
-      source: "bubblesort",
+      source: "sorting/bubbleSort",
       imgSource: ''
     }, {
       label: "Sequential Search",
-      source: "sequentialsearch",
+      source: "searching/sequentialSearch",
       imgSource: ''
     }, {
-      label: "Fibonacci Sequence",
-      source: "fibonaccisequence",
+      label: "Binary Search",
+      source: "binarySearch",
       imgSource: ''
     }, {
-      label: "Fibonacci Sequence",
-      source: "fibonaccisequence",
+      label: "Array",
+      source: "array",
       imgSource: ''
     }, {
-      label: "Fibonacci Sequence",
-      source: "fibonaccisequence",
+      label: "Stack",
+      source: "stack",
       imgSource: ''
     }
   ];

@@ -2,10 +2,10 @@ import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'user-input',
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.scss'
+  templateUrl: './stack-input.component.html',
+  styleUrl: './stack-input.component.scss'
 })
-export class InputComponent {
+export class StackInputComponent {
   @Output()
   pushBtnEventEmitter = new EventEmitter();
   @Output()

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputComponent } from './input.component';
+import { StackAnimationComponent } from './stack-animation.component';
 
-describe('InputComponent', () => {
-  let component: InputComponent;
-  let fixture: ComponentFixture<InputComponent>;
+describe('AnimationComponent', () => {
+  let component: StackAnimationComponent;
+  let fixture: ComponentFixture<StackAnimationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputComponent]
+      imports: [StackAnimationComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(InputComponent);
+
+    fixture = TestBed.createComponent(StackAnimationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

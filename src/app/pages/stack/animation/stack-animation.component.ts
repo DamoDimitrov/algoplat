@@ -4,10 +4,10 @@ import {Mesh, PerspectiveCamera, PointLight, Scene, WebGLRenderer} from 'three';
 
 @Component({
   selector: 'animation',
-  templateUrl: './animation.component.html',
-  styleUrl: './animation.component.scss'
+  templateUrl: './stack-animation.component.html',
+  styleUrl: './stack-animation.component.scss'
 })
-export class AnimationComponent {
+export class StackAnimationComponent {
   @ViewChild('canvasElement')
   canvasRef: ElementRef;
 
@@ -149,6 +149,7 @@ export class AnimationComponent {
 
       return;
     }
+
     requestAnimationFrame(this.peekFromStack.bind(this));
     const sq = this.sqArr[this.next - 1];
     (sq.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
@@ -180,8 +181,6 @@ export class AnimationComponent {
     const yCoordinatesAboveBorder = this.rectWidth * 1.5 + this.borderPadding;
 
     return yAxis === yCoordinatesAboveBorder;
-
-
   }
 
   drawRectangle() {
@@ -213,7 +212,6 @@ export class AnimationComponent {
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
 
     const line = new THREE.Line(geometry, lineMaterial);
-    console.log(line)
     this.scene.add(line);
   }
 

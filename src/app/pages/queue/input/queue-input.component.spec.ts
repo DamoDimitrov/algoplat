@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabsWindowComponent } from './tabs-window.component';
+import { QueueInputComponent } from './queue-input.component';
 
-describe('TabsWindowComponent', () => {
-  let component: TabsWindowComponent;
-  let fixture: ComponentFixture<TabsWindowComponent>;
+describe('InputComponent', () => {
+  let component: QueueInputComponent;
+  let fixture: ComponentFixture<QueueInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TabsWindowComponent]
+      imports: [QueueInputComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(TabsWindowComponent);
+
+    fixture = TestBed.createComponent(QueueInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

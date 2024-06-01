@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InformationComponent } from './information.component';
+import { StackTabsWindowComponent } from './stack-tabs-window.component';
 
-describe('InformationComponent', () => {
-  let component: InformationComponent;
-  let fixture: ComponentFixture<InformationComponent>;
+describe('TabsWindowComponent', () => {
+  let component: StackTabsWindowComponent;
+  let fixture: ComponentFixture<StackTabsWindowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InformationComponent]
+      imports: [StackTabsWindowComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(InformationComponent);
+
+    fixture = TestBed.createComponent(StackTabsWindowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

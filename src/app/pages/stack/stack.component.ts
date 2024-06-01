@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {AnimationComponent} from "./animation/animation.component";
+import {StackAnimationComponent} from "./animation/stack-animation.component";
 
 @Component({
   selector: 'app-stack',
@@ -8,7 +8,7 @@ import {AnimationComponent} from "./animation/animation.component";
 })
 export class StackComponent {
   @ViewChild('animationComponent')
-  animationComponent: AnimationComponent;
+  animationComponent: StackAnimationComponent;
 
   handlePushEvent() {
     if (this.animationComponent.activeAnimation === false) {

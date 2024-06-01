@@ -2,10 +2,10 @@ import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'user-input',
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.scss'
+  templateUrl: './queue-input.component.html',
+  styleUrl: './queue-input.component.scss'
 })
-export class InputComponent {
+export class QueueInputComponent {
   @Output()
   pushBtnEventEmitter = new EventEmitter();
   @Output()
