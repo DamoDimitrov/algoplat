@@ -17,6 +17,7 @@ export class MainPageContentComponent {
   featuredAlgorithms = [
     {
       label: "Quick Sort",
+<<<<<<< Updated upstream
       source: "quicksort",
       imgSource: 'src/assets/imgs/Bubble-sort-0.png'
     }, {
@@ -38,6 +39,29 @@ export class MainPageContentComponent {
     }, {
       label: "Fibonacci Sequence",
       source: "fibonaccisequence",
+=======
+      source: "sorting/quickSort",
+      imgSource: 'assets/imgs/Bubble-sort-0.png'
+    }, {
+      label: "Bubble Sort",
+      source: "sorting/bubbleSort",
+      imgSource: ''
+    }, {
+      label: "Sequential Search",
+      source: "searching/sequentialSearch",
+      imgSource: ''
+    }, {
+      label: "Binary Search",
+      source: "binarySearch",
+      imgSource: ''
+    }, {
+      label: "Array",
+      source: "array",
+      imgSource: ''
+    }, {
+      label: "Stack",
+      source: "stack",
+>>>>>>> Stashed changes
       imgSource: ''
     }
   ];

@@ -1,0 +1,126 @@
+{
+  "HEADER_TITLE": "Algoplat",
+  "WELCOMING_MESSAGE": "Изследвайте света на алгоритмите с интерактивни анимации и изчерпателни обяснения.",
+  "START_NOW_MESSAGE": "Започнете своето пътешествие сега!",
+  "HOME_LABEL": "Начало",
+  "LANGUAGES_LABEL": "Езици",
+  "UNI_NAME_LABEL":"ПУ „Паисий Хилендарски“",
+  "FACULTY_NAME_LABEL":"Физико-технологичен факултет",
+  "AUTHOR_NAME_LABEL":"Дамян Димитров",
+  "YEAR_LABEL":"2024",
+  "algorithmTypes": [
+    {
+      "label": "Сортиращи",
+      "source": "sorting",
+      "algorithms": [
+        {
+          "label": "Бързо Сортиране",
+          "source": "sorting/quickSort",
+          "sourceCode": "",
+          "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
+        },
+        {
+          "label": "Бъбъл Сортиране",
+          "source": "sorting/bubbleSort",
+          "sourceCode": ""
+        },
+        {
+          "label": "Мърдж Сортиране",
+          "source": "sorting/mergeSort",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Търсещи",
+      "source": "searching",
+      "algorithms": [
+        {
+          "label": "Линейно Търсене",
+          "source": "searching/sequentialSearch",
+          "sourceCode": ""
+        },
+        {
+          "label": "Бинарно Търсене",
+          "source": "searching/binarySearch",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Структури от данни",
+      "source": "data-structures",
+      "structures": [
+        {
+          "label": "Стек",
+          "source": "stack",
+          "sourceCode": ""
+        },
+        {
+          "label": "Опашка",
+          "source": "queue",
+          "sourceCode": ""
+        },
+        {
+          "label": "Масив",
+          "source": "array",
+          "sourceCode": ""}
+      ]
+    }
+  ],
+  "advancedAlgorithms": [
+    {
+      "label": "Хеширащи",
+      "source": "hashing",
+      "algorithms": [
+        {
+          "label": "MD5",
+          "source": "md5",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-1",
+          "source": "sha-1",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-256",
+          "source": "sha-256",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "На случаен принцип",
+      "source": "randomized",
+      "algorithms": [
+        {
+          "label": "Монте Карло Интеграция",
+          "source": "montecarlointegration",
+          "sourceCode": ""
+        },
+        {
+          "label": "Лас Вегас Куиксорт Интеграция",
+          "source": "lasvegasintegration",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Рекурсивни",
+      "source": "recursive",
+      "algorithms": [
+        {
+          "label": "Факториален",
+          "source": "factorial",
+          "sourceCode": ""
+        },
+        {
+          "label": "Последователност на Фибоначи",
+          "source": "fibonaccisequence",
+          "sourceCode": ""
+        }
+      ]
+    }
+  ]
+}

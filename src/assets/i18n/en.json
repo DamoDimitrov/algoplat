@@ -8,6 +8,11 @@
   "FACULTY_NAME_LABEL": "Faculty of Physics and Technology",
   "AUTHOR_NAME_LABEL": "Damyan Dimitrov",
   "YEAR_LABEL": "2024",
+<<<<<<< Updated upstream
+=======
+  "ASCENDING": "Ascending",
+  "DESCENDING": "Descending",
+>>>>>>> Stashed changes
   "algorithmTypes": [
     {
       "label": "Sorting",

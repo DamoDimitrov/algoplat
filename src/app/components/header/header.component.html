@@ -53,6 +53,10 @@
       </div>
       <div class="algo-type-dropdown">
         <a [routerLink]="algo.source"
+<<<<<<< Updated upstream
+=======
+           [state]="algo"
+>>>>>>> Stashed changes
            *ngFor="let algo of category.algorithms? category.algorithms : category.structures"
            (click)="onClickToggleTypesMenu()">{{algo.label | translate}}</a>
       </div>

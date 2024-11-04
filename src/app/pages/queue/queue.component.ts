@@ -1,5 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
+<<<<<<< Updated upstream
 import {AnimationComponent} from "./animation/animation.component";
+=======
+import {QueueAnimationComponent} from "./animation/queue-animation.component";
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-queue',
@@ -8,7 +12,11 @@ import {AnimationComponent} from "./animation/animation.component";
 })
 export class QueueComponent {
   @ViewChild('animationComponent')
+<<<<<<< Updated upstream
   animationComponent: AnimationComponent;
+=======
+  animationComponent: QueueAnimationComponent;
+>>>>>>> Stashed changes
 
   handlePushEvent() {
     if (this.animationComponent.activeAnimation === false) {

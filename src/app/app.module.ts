@@ -15,6 +15,10 @@ import {FooterComponent} from "./components/footer/footer.component";
 import {StackModule} from "./pages/stack/stack.module";
 import {QueueModule} from "./pages/queue/queue.module";
 import {ArrayModule} from "./pages/array/array.module";
+<<<<<<< Updated upstream
+=======
+import {QuickSortModule} from "./pages/sorting/quick-sort/quick-sort.module";
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -28,6 +32,10 @@ import {ArrayModule} from "./pages/array/array.module";
     ArrayModule,
     QueueModule,
     StackModule,
+<<<<<<< Updated upstream
+=======
+    QuickSortModule,
+>>>>>>> Stashed changes
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

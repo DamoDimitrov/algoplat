@@ -1,6 +1,7 @@
 <div class="content-wrapper">
   <h1 class="header">Queue</h1>
   <animation #animationComponent></animation>
+<<<<<<< Updated upstream
   <user-input
     (peekBtnEventEmitter)="handlePeekEvent()"
     (pushBtnEventEmitter)="handlePushEvent()"
@@ -9,3 +10,11 @@
 <!--  <information></information>-->
   <!--  <tabs-window></tabs-window>-->
 </div>
+=======
+  <queue-user-input (peekBtnEventEmitter)="handlePeekEvent()" (pushBtnEventEmitter)="handlePushEvent()"
+    (popBtnEventEmitter)="handlePopEvent()">
+  </queue-user-input>
+  <!--  <information></information>-->
+  <!--  <tabs-window></tabs-window>-->
+</div>
+>>>>>>> Stashed changes
