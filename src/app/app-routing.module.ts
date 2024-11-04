@@ -6,10 +6,8 @@ import {StackComponent} from "./pages/stack/stack.component";
 import {StackModule} from "./pages/stack/stack.module";
 import {QueueComponent} from "./pages/queue/queue.component";
 import {ArrayComponent} from "./pages/array/array.component";
-<<<<<<< Updated upstream
-=======
+
 import {QuickSortComponent} from "./pages/sorting/quick-sort/quick-sort.component";
->>>>>>> Stashed changes
 
 const routes: Routes = [
   { path: '', component: MainPageContentComponent },
@@ -18,8 +16,6 @@ const routes: Routes = [
     component: MainPageContentComponent,
   },
   {
-<<<<<<< Updated upstream
-=======
     path: 'sorting',
     children: [
       {
@@ -50,7 +46,6 @@ const routes: Routes = [
     ]
   },
   {
->>>>>>> Stashed changes
     path: 'stack',
     component: StackComponent,
   },

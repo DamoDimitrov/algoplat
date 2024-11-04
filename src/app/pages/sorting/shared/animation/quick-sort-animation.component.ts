@@ -6,7 +6,6 @@ import {
   PointLight,
   Scene,
   Vector2,
-  Vector3,
   WebGLRenderer,
 } from 'three';
 import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';

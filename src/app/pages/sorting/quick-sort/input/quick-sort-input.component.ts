@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HelperFunctions} from "../../../../utils/HelperFunctions";
 import {SortDataModel} from "../../shared/models/SortDataModel";

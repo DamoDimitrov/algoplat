@@ -3,7 +3,7 @@ import {Mesh, PerspectiveCamera, PointLight, Scene, WebGLRenderer} from "three";
 import * as THREE from "three";
 
 @Component({
-  selector: 'animation',
+  selector: 'queue-animation',
   templateUrl: './queue-animation.component.html',
   styleUrl: './queue-animation.component.scss'
 })

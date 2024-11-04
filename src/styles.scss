@@ -2,10 +2,7 @@
   --main-bg-color: #1b4e73;
   --main-text-color: white;
   --main-bg-color-lighter: #226ca2;
-<<<<<<< Updated upstream
-=======
   --light-grey: grey;
->>>>>>> Stashed changes
 }
 
 * {
@@ -34,6 +31,16 @@ a {
   font-size: 5vw;
   border-radius: 5px;
 }
+
+//TODO refactor
+// .content-wrapper {
+//   padding-top: 0.5em;
+// }
+
+// .header {
+//   text-align: center;
+//   font-size: 0.5em;
+// }
 
 @media (max-width: 786px) {
   .container {

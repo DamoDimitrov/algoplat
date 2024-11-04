@@ -1,9 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-<<<<<<< Updated upstream
-import {AnimationComponent} from "./animation/animation.component";
-=======
 import {StackAnimationComponent} from "./animation/stack-animation.component";
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-stack',
@@ -12,11 +8,7 @@ import {StackAnimationComponent} from "./animation/stack-animation.component";
 })
 export class StackComponent {
   @ViewChild('animationComponent')
-<<<<<<< Updated upstream
-  animationComponent: AnimationComponent;
-=======
   animationComponent: StackAnimationComponent;
->>>>>>> Stashed changes
 
   handlePushEvent() {
     if (this.animationComponent.activeAnimation === false) {

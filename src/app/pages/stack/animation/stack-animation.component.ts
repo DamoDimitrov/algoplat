@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import {Mesh, PerspectiveCamera, PointLight, Scene, WebGLRenderer} from 'three';
 
 @Component({
-  selector: 'animation',
+  selector: 'stack-animation',
   templateUrl: './stack-animation.component.html',
   styleUrl: './stack-animation.component.scss'
 })

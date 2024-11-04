@@ -1,19 +1,11 @@
 <div class="content-wrapper">
   <h1 class="header">Array</h1>
-<<<<<<< Updated upstream
-  <animation #animationComponent></animation>
-  <user-input>
-<!--    (peekBtnEventEmitter)="handlePeekEvent()"-->
-<!--    (pushBtnEventEmitter)="handlePushEvent()"-->
-<!--    (popBtnEventEmitter)="handlePopEvent()">-->
-=======
   <animation #animationComponent
   [arrayData]="arrayData"
   [setNumberByIndexData]="numberToSetData"></animation>
   <user-input
     (getArrayEmitter)="handleGetArray($event)"
     (setValueByIndexEmitter)="handleSetValueByIndex($event)">
->>>>>>> Stashed changes
   </user-input>
   <!--  <information></information>-->
   <!--  <tabs-window></tabs-window>-->

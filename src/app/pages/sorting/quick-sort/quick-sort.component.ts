@@ -1,4 +1,4 @@
-import {Component, inject, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {QuickSortAnimationComponent} from "../shared/animation/quick-sort-animation.component";
 import {SortDataModel} from "../shared/models/SortDataModel";
 

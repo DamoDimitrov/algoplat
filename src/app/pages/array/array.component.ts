@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-import { Component } from '@angular/core';
-=======
 import {Component, ViewChild} from '@angular/core';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-array',
@@ -10,9 +6,6 @@ import {Component, ViewChild} from '@angular/core';
   styleUrl: './array.component.scss'
 })
 export class ArrayComponent {
-<<<<<<< Updated upstream
-
-=======
   @ViewChild('animationComponent')
   animationComponent
 
@@ -30,5 +23,4 @@ export class ArrayComponent {
       this.numberToSetData = data;
     }
   }
->>>>>>> Stashed changes
 }

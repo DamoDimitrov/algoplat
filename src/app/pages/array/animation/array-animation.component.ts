@@ -9,7 +9,6 @@ import {
 } from "three";
 import { Font, FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
-import {createText} from "three/examples/jsm/webxr/Text2D";
 
 @Component({
   selector: 'animation',
