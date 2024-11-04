@@ -8,12 +8,9 @@
   "FACULTY_NAME_LABEL":"Физико-технологичен факултет",
   "AUTHOR_NAME_LABEL":"Дамян Димитров",
   "YEAR_LABEL":"2024",
-<<<<<<< Updated upstream
-=======
   "ASCENDING": "Възходящ",
   "DESCENDING": "Низходящ",
   "SORT": "Сортирай",
->>>>>>> Stashed changes
   "algorithmTypes": [
     {
       "label": "Сортиращи",
@@ -21,30 +18,18 @@
       "algorithms": [
         {
           "label": "Бързо Сортиране",
-<<<<<<< Updated upstream
-          "source": "quicksort",
-=======
           "source": "sorting/quickSort",
->>>>>>> Stashed changes
           "sourceCode": "",
           "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
         },
         {
           "label": "Бъбъл Сортиране",
-<<<<<<< Updated upstream
-          "source": "bubblesort",
-=======
           "source": "sorting/bubbleSort",
->>>>>>> Stashed changes
           "sourceCode": ""
         },
         {
           "label": "Мърдж Сортиране",
-<<<<<<< Updated upstream
-          "source": "mergesort",
-=======
           "source": "sorting/mergeSort",
->>>>>>> Stashed changes
           "sourceCode": ""
         }
       ]
@@ -55,36 +40,12 @@
       "algorithms": [
         {
           "label": "Линейно Търсене",
-<<<<<<< Updated upstream
-          "source": "sequentialsearch",
-=======
           "source": "searching/sequentialSearch",
->>>>>>> Stashed changes
           "sourceCode": ""
         },
         {
           "label": "Бинарно Търсене",
-<<<<<<< Updated upstream
-          "source": "binarysearch",
-          "sourceCode": ""
-        }
-      ]
-    },
-    {
-      "label": "Рекурсивни",
-      "source": "recursive",
-      "algorithms": [
-        {
-          "label": "Факториален",
-          "source": "factorial",
-          "sourceCode": ""
-        },
-        {
-          "label": "Последователност на Фибоначи",
-          "source": "fibonaccisequence",
-=======
           "source": "searching/binarySearch",
->>>>>>> Stashed changes
           "sourceCode": ""
         }
       ]
@@ -147,9 +108,6 @@
           "sourceCode": ""
         }
       ]
-<<<<<<< Updated upstream
-    }]
-=======
     },
     {
       "label": "Рекурсивни",
@@ -168,5 +126,4 @@
       ]
     }
   ]
->>>>>>> Stashed changes
 }
