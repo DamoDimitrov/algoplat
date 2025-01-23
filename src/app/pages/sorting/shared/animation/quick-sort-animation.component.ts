@@ -352,10 +352,6 @@ export class QuickSortAnimationComponent {
   async moveSquaresToCenter(numberArr: number[], paces: number) {
     const promises = [];
 
-    console.log(numberArr);
-    console.log(this.sortData.data);
-    
-    
     for (let i = numberArr.length - 1; i > -1; i--) {      
       promises.push(this.moveSquareHorizontalyToPosition(numberArr[i], i, paces + i));
     }
