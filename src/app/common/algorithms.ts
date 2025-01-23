@@ -1,6 +1,8 @@
+import { QuickSortAnimationComponent } from "../pages/sorting/shared/animation/quick-sort-animation.component";
+
 export class Algorithms {
   //Sorting
-  static quickSort(arr: number[]): number[] {
+  static quickSort(arr: number[], direction: string): number[] {
     if (arr.length <= 1) {
       return arr;
     }
@@ -10,13 +12,22 @@ export class Algorithms {
     let right = [];
 
     for (let i = 1; i < arr.length; i++) {
-      if (arr[i] <= p) {
-        left.push(arr[i]);
+      if(direction === 'ASC') {
+        if (arr[i] <= p) {
+          left.push(arr[i]);
+        } else {
+          right.push(arr[i]);
+        }
       } else {
-        right.push(arr[i]);
+        if (arr[i] >= p) {
+          left.push(arr[i]);
+        } else {
+          right.push(arr[i]);
+        }
       }
     }
-    return [...this.quickSort(left), p, ...this.quickSort(right)];
+
+    return [...this.quickSort(left, direction), p, ...this.quickSort(right, direction)];
   }
 
   static bubbleSort(arr: number[]): number[] {
