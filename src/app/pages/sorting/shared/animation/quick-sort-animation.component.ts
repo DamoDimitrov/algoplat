@@ -379,17 +379,17 @@ export class QuickSortAnimationComponent {
     await Promise.all(promises);
   }
 
- findSquareIndexByNumber(number: number) {
-  return this.sqArr.findIndex(sq => sq.hasOwnProperty(number))
- }
+  findSquareIndexByNumber(number: number) {
+    return this.sqArr.findIndex(sq => sq.hasOwnProperty(number))
+  }
 
- getSquareByNumber(number: number) {
-  return this.sqArr.find(sq => sq.hasOwnProperty(number))[number]
- }
+  getSquareByNumber(number: number) {
+    return this.sqArr.find(sq => sq.hasOwnProperty(number))[number]
+  }
 
- getSquareByIndex(index: number) {  
-  return this.sqArr[index][this.sortData.data[index]];
- }
+  getSquareByIndex(index: number) {  
+    return this.sqArr[index][this.sortData.data[index]];
+  }
 
  private async sort(numbersArr: number[]) {
   const direction = this.sortData.sortType;
@@ -417,7 +417,7 @@ export class QuickSortAnimationComponent {
         await this.moveSquareHorizontalyToPosition(numbersArr[i], i, (left.length - 1));
         await this.moveSquaresOnTheRightSideOnePaceLeft(numbersArr, i);
         
-        if (this.findSquareIndexByNumber(numbersArr[0]) > 0) {
+        if (this.findSquareIndexByNumber(p) > 0) {
           await this.movesSquaresInLeftArrToOnePaceLeft(
             this.sortData.data.slice(0, this.findSquareIndexByNumber(numbersArr[0]))
             .map(Number)
@@ -426,9 +426,9 @@ export class QuickSortAnimationComponent {
         await this.moveSquareDown(numbersArr[i]);
 
         const number = numbersArr[i];
-        const square = this.sqArr.splice(i, 1)[0];
-        this.sqArr.splice(left.length, 0, square);
-        this.sortData.data.splice(left.length, 0, this.sortData.data.splice(i, 1)[0]);
+        this.sortData.data.splice(this.findSquareIndexByNumber(p), 0, this.sortData.data.splice(this.findSquareIndexByNumber(number), 1)[0]);
+        const square = this.sqArr.splice(this.findSquareIndexByNumber(number), 1)[0];
+        this.sqArr.splice(this.findSquareIndexByNumber(p), 0, square);
 
         left.push(number);
         pivotIndex++;
@@ -453,7 +453,11 @@ export class QuickSortAnimationComponent {
 
   await this.moveSquareDown(numbersArr[0]);
 
-  await this.moveSquaresToCenter(numbersArr, left.length);
+  if (this.sortData.data.map(Number).indexOf(Math.min(...numbersArr)) > 0) {
+    await this.moveSquaresToCenter(this.sortData.data.map(Number), left.length);
+  } else {
+    await this.moveSquaresToCenter(numbersArr, left.length);
+  }
 
   return [...(await this.sort(left)), p, ...(await this.sort(right))];
 }
