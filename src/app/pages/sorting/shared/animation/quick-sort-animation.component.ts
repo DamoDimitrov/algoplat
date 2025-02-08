@@ -123,10 +123,10 @@ export class QuickSortAnimationComponent {
     this.renderer.render(this.scene, this.camera);
   }
 
-  moveSquareUp(number: number): Promise<void> {
+  moveSquareUp(number: number, i: number): Promise<void> {
     
     return new Promise((resolve) => {
-      const sq = this.getSquareByNumber(number);
+      const sq = this.getSquareByNumber(number, i);
       if (!sq) {
         console.error(`Square with number ${number} does not exist.`);
         resolve();
@@ -154,9 +154,9 @@ export class QuickSortAnimationComponent {
     });
   }
 
-  moveSquareDown(number: number): Promise<void> {
+  moveSquareDown(number: number, i: number): Promise<void> {
     return new Promise((resolve) => {
-      const sq = this.getSquareByNumber(number);
+      const sq = this.getSquareByNumber(number, i);
       if (!sq) {
         console.error(`Square with number ${number} does not exist.`);
         resolve();
@@ -228,7 +228,7 @@ export class QuickSortAnimationComponent {
 
   moveSquareHorizontalyToPosition(number: number, originalPosIndex: number, finalPosIndex: number): Promise<void> {
     return new Promise((resolve) => {
-      const sq = this.getSquareByNumber(number);
+      const sq = this.getSquareByNumber(number, originalPosIndex);
 
       if (!sq) {
         console.error(`Square at index ${originalPosIndex} does not exist.`);
@@ -349,11 +349,11 @@ export class QuickSortAnimationComponent {
     );
   }
 
-  async moveSquaresToCenter(numberArr: number[], paces: number) {
+  async moveSquaresToCenter(numbersArr: number[], paces: number) {
     const promises = [];
 
-    for (let i = numberArr.length - 1; i > -1; i--) {      
-      promises.push(this.moveSquareHorizontalyToPosition(numberArr[i], i, paces + i));
+    for (let i = numbersArr.length - 1; i > -1; i--) {      
+      promises.push(this.moveSquareHorizontalyToPosition(numbersArr[i], i, paces + i));
     }
 
     await Promise.all(promises);
@@ -372,37 +372,37 @@ export class QuickSortAnimationComponent {
   async moveSquaresOnTheRightSideOnePaceLeft(numberArr: number[], i: number) {
     const promises = [];
 
-    for (let j = i + 1; j < numberArr.length; j++) {
-      promises.push(this.moveSquareHorizontalyToPosition(numberArr[j], j, j - 1));
+    for (let j = 0; j < numberArr.length; j++) {
+      promises.push(this.moveSquareHorizontalyToPosition(numberArr[j], i + j, i + j - 1));
     }
 
     await Promise.all(promises);
   }
 
-  findSquareIndexByNumber(number: number) {
-    return this.sqArr.findIndex(sq => sq.hasOwnProperty(number))
+  findSquareIndexByNumber(number: number, i: number) {
+    return this.sqArr.slice(i).findIndex(sq => sq.hasOwnProperty(number)) + i;
   }
 
-  getSquareByNumber(number: number) {
-    return this.sqArr.find(sq => sq.hasOwnProperty(number))[number]
+  getSquareByNumber(number: number, i: number) {
+    return this.sqArr.slice(i).find(sq => sq.hasOwnProperty(number))[number]
   }
 
   getSquareByIndex(index: number) {  
     return this.sqArr[index][this.sortData.data[index]];
   }
 
- private async sort(numbersArr: number[]) {
+ private async sort(numbersArr: number[], startingIndex = 0) {
   const direction = this.sortData.sortType;
 
   if (numbersArr.length <= 1) {
     return numbersArr;
   }
 
-  numbersArr.forEach(e => {
-    (this.getSquareByNumber(e).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
+  numbersArr.forEach((e, i) => {
+    (this.getSquareByNumber(e, i + startingIndex).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
   })
 
-  await this.moveSquareUp(numbersArr[0]);
+  await this.moveSquareUp(numbersArr[0], 0);
   this.renderer.render(this.scene, this.camera);
 
   let p = numbersArr[0];
@@ -411,29 +411,31 @@ export class QuickSortAnimationComponent {
   let pivotIndex = 0;
 
   for (let i = 1; i < numbersArr.length; i++) {
-    await this.moveSquareUp(numbersArr[i]);
+    const fN = startingIndex + i + 1;
+    await this.moveSquareUp(numbersArr[i], startingIndex + i);
     if (direction === 'ASC') {
       if (numbersArr[i] <= p) {
-        await this.moveSquareHorizontalyToPosition(numbersArr[i], i, (left.length - 1));
-        await this.moveSquaresOnTheRightSideOnePaceLeft(numbersArr, i);
+        await this.moveSquareHorizontalyToPosition(numbersArr[i], startingIndex + i, startingIndex + left.length - 1);
+        await this.moveSquaresOnTheRightSideOnePaceLeft(this.sortData.data.map(Number).slice(fN), fN);
         
-        if (this.findSquareIndexByNumber(p) > 0) {
+        if (this.findSquareIndexByNumber(p, startingIndex + pivotIndex) > 0) {
           await this.movesSquaresInLeftArrToOnePaceLeft(
-            this.sortData.data.slice(0, this.findSquareIndexByNumber(numbersArr[0]))
+            this.sortData.data.slice(0, this.findSquareIndexByNumber(p, startingIndex + pivotIndex))
             .map(Number)
           );
         }
-        await this.moveSquareDown(numbersArr[i]);
+        await this.moveSquareDown(numbersArr[i], startingIndex + i);
 
         const number = numbersArr[i];
-        this.sortData.data.splice(this.findSquareIndexByNumber(p), 0, this.sortData.data.splice(this.findSquareIndexByNumber(number), 1)[0]);
-        const square = this.sqArr.splice(this.findSquareIndexByNumber(number), 1)[0];
-        this.sqArr.splice(this.findSquareIndexByNumber(p), 0, square);
+        const dataNumber = this.sortData.data.splice(this.findSquareIndexByNumber(number, startingIndex + i), 1)[0];
+        this.sortData.data.splice(this.findSquareIndexByNumber(p, startingIndex + pivotIndex), 0, dataNumber);
+        const square = this.sqArr.splice(this.findSquareIndexByNumber(number, startingIndex + i), 1)[0];
+        this.sqArr.splice(this.findSquareIndexByNumber(p, startingIndex + pivotIndex), 0, square);
 
         left.push(number);
         pivotIndex++;
       } else {
-        await this.moveSquareDown(numbersArr[i]);
+        await this.moveSquareDown(numbersArr[i], startingIndex + i);
         right.push(numbersArr[i]);
       }
     } else {
@@ -446,19 +448,16 @@ export class QuickSortAnimationComponent {
 
   }  
   
-  numbersArr.forEach(e => {    
-    (this.getSquareByNumber(e).square.material as THREE.MeshBasicMaterial).color.set(0x000000);
+  this.sqArr.forEach((e, i) => {    
+    (this.getSquareByNumber(Number(Object.keys(e)[0]), i).square.material as THREE.MeshBasicMaterial).color.set(0x000000);
   })
   this.renderer.render(this.scene, this.camera);
+  
 
-  await this.moveSquareDown(numbersArr[0]);
+  await this.moveSquareDown(numbersArr[0], pivotIndex + startingIndex);
 
-  if (this.sortData.data.map(Number).indexOf(Math.min(...numbersArr)) > 0) {
-    await this.moveSquaresToCenter(this.sortData.data.map(Number), left.length);
-  } else {
-    await this.moveSquaresToCenter(numbersArr, left.length);
-  }
+  await this.moveSquaresToCenter(this.sortData.data.map(Number), left.length);
 
-  return [...(await this.sort(left)), p, ...(await this.sort(right))];
+  return [...(await this.sort(left, pivotIndex - left.length + startingIndex)), p, ...(await this.sort(right, pivotIndex + 1 + startingIndex))];
 }
 }
