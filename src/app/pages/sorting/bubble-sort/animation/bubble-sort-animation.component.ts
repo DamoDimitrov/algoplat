@@ -12,6 +12,7 @@ import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { SortDataModel } from '../../shared/models/SortDataModel';
 import { SquareModel } from '../../shared/models/SquareModel';
+import { Algorithms } from 'src/app/common/algorithms';
 
 @Component({
   selector: 'bubble-sort-animation',
@@ -97,6 +98,7 @@ export class BubbleSortAnimationComponent {
 
     setTimeout(() => {
       this.sort(this.sortData.data.map(Number));
+      // Algorithms.bubbleSort(this.sortData.data.map(Number));
     }, 500);
   }
 
@@ -213,9 +215,6 @@ export class BubbleSortAnimationComponent {
           this.renderer.render(this.scene, this.camera);
           requestAnimationFrame(animate);
         } else {
-          this.sqArr[index1] = sq2;
-          this.sqArr[index2] = sq1;
-
           this.renderer.render(this.scene, this.camera);
           resolve(); // Resolve the promise when the square reaches the target position
         }
@@ -391,72 +390,50 @@ export class BubbleSortAnimationComponent {
   }
 
  private async sort(numbersArr: number[], startingIndex = 0) {
-  const direction = this.sortData.sortType;
+  // const direction = this.sortData.sortType;
 
   if (numbersArr.length <= 1) {
     return numbersArr;
   }
 
-  numbersArr.forEach((e, i) => {
-    (this.getSquareByNumber(e, i + startingIndex).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
-  })
+  let isSwapped: boolean;
+    do {
+      isSwapped = false;
+      for (let i = 0; i < numbersArr.length - 1; i++) {
+        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034));
+        this.renderer.render(this.scene, this.camera);
 
-  await this.moveSquareUp(numbersArr[0], 0);
-  this.renderer.render(this.scene, this.camera);
+        await Promise.all([
+          this.moveSquareUp(numbersArr[i], i),
+          this.moveSquareUp(numbersArr[i + 1], i + 1)
+        ]);
 
-  let p = numbersArr[0];
-  let left = [];
-  let right = [];
-  let pivotIndex = 0;
+        if (numbersArr[i] > numbersArr[i + 1]) {
+          await this.exchangeSquaresPositions(i, i + 1);
+          const tSq = this.sqArr[i];
+          this.sqArr[i] = this.sqArr[i + 1];
+          this.sqArr[i + 1] = tSq;
 
-  for (let i = 1; i < numbersArr.length; i++) {
-    const fN = startingIndex + i + 1;
-    await this.moveSquareUp(numbersArr[i], startingIndex + i);
-    if (direction === 'ASC') {
-      if (numbersArr[i] <= p) {
-        await this.moveSquareHorizontalyToPosition(numbersArr[i], startingIndex + i, startingIndex + left.length - 1);
-        await this.moveSquaresOnTheRightSideOnePaceLeft(this.sortData.data.map(Number).slice(fN), fN);
-        
-        if (this.findSquareIndexByNumber(p, startingIndex + pivotIndex) > 0) {
-          await this.movesSquaresInLeftArrToOnePaceLeft(
-            this.sortData.data.slice(0, this.findSquareIndexByNumber(p, startingIndex + pivotIndex))
-            .map(Number)
-          );
+          const t = numbersArr[i];
+          numbersArr[i] = numbersArr[i + 1];
+          numbersArr[i + 1] = t;
+
+          const tData = this.sortData.data[i];
+          this.sortData.data[i] = this.sortData.data[i + 1];
+          this.sortData.data[i + 1] = tData;
+          isSwapped = true;
         }
-        await this.moveSquareDown(numbersArr[i], startingIndex + i);
 
-        const number = numbersArr[i];
-        const dataNumber = this.sortData.data.splice(this.findSquareIndexByNumber(number, startingIndex + i), 1)[0];
-        this.sortData.data.splice(this.findSquareIndexByNumber(p, startingIndex + pivotIndex), 0, dataNumber);
-        const square = this.sqArr.splice(this.findSquareIndexByNumber(number, startingIndex + i), 1)[0];
-        this.sqArr.splice(this.findSquareIndexByNumber(p, startingIndex + pivotIndex), 0, square);
+        await Promise.all([
+          this.moveSquareDown(numbersArr[i], i),
+          this.moveSquareDown(numbersArr[i + 1], i + 1)
+        ]);
 
-        left.push(number);
-        pivotIndex++;
-      } else {
-        await this.moveSquareDown(numbersArr[i], startingIndex + i);
-        right.push(numbersArr[i]);
+        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0x000000));
+        this.renderer.render(this.scene, this.camera);
       }
-    } else {
-      if (numbersArr[i] >= p) {
-        left.push(numbersArr[i]);
-      } else {
-        right.push(numbersArr[i]);
-      }
-    }
+    } while (isSwapped);
 
-  }  
-  
-  this.sqArr.forEach((e, i) => {    
-    (this.getSquareByNumber(Number(Object.keys(e)[0]), i).square.material as THREE.MeshBasicMaterial).color.set(0x000000);
-  })
-  this.renderer.render(this.scene, this.camera);
-  
-
-  await this.moveSquareDown(numbersArr[0], pivotIndex + startingIndex);
-
-  await this.moveSquaresToCenter(this.sortData.data.map(Number), left.length);
-
-  return [...(await this.sort(left, pivotIndex - left.length + startingIndex)), p, ...(await this.sort(right, pivotIndex + 1 + startingIndex))];
-}
+    return numbersArr;
+  }
 }
