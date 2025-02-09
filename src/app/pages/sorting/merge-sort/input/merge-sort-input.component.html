@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <form [formGroup]="form">
+    <input formControlName="inputData" class="input-field" type="text">
+    <div class="sort-type-wrapper">
+      <!-- <input formControlName="sortType" value="ASC" name="sortType" id="ascending-btn" class="radio-btn" type="radio" checked>
+      <label class="radio-btn-label" for="ascending-btn">{{ 'ASCENDING' | translate}}</label>
+
+      <input formControlName="sortType" value="DESC" name="sortType" id="descending-btn" class="radio-btn" type="radio">
+      <label class="radio-btn-label" for="descending-btn">{{ 'DESCENDING' | translate}}</label> -->
+    </div>
+    <button (click)="getData()" id="submit-btn">{{ 'SORT' | translate}}</button>
+  </form>
+</div>

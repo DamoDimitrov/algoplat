@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BubbleSortAnimationComponent } from './bubble-sort-animation.component';
 
-describe('QuickSortAnimationComponent', () => {
+describe('BubbleSortAnimationComponent', () => {
   let component: BubbleSortAnimationComponent;
   let fixture: ComponentFixture<BubbleSortAnimationComponent>;
 

@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BubbleSortInputComponent } from './bubble-sort-input.component';
+import { MergeSortComponent } from '../merge-sort.component';
 
-describe('BubbleSortInputComponent', () => {
-  let component: BubbleSortInputComponent;
-  let fixture: ComponentFixture<BubbleSortInputComponent>;
+describe('MergeSortComponent', () => {
+  let component: MergeSortComponent;
+  let fixture: ComponentFixture<MergeSortComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BubbleSortInputComponent]
+      imports: [MergeSortComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BubbleSortInputComponent);
+    fixture = TestBed.createComponent(MergeSortComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });

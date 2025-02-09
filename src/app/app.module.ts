@@ -17,6 +17,7 @@ import {QueueModule} from "./pages/queue/queue.module";
 import {ArrayModule} from "./pages/array/array.module";
 import {QuickSortModule} from "./pages/sorting/quick-sort/quick-sort.module";
 import { BubbleSortModule } from './pages/sorting/bubble-sort/bubble-sort.module';
+import { MergeSortModule } from './pages/sorting/merge-sort/merge-sort.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BubbleSortModule } from './pages/sorting/bubble-sort/bubble-sort.module
     StackModule,
     QuickSortModule,
     BubbleSortModule,
+    MergeSortModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
