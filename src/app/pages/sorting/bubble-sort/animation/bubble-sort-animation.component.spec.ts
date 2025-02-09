@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuickSortAnimationComponent } from './quick-sort-animation.component';
+import { BubbleSortAnimationComponent } from './bubble-sort-animation.component';
 
 describe('QuickSortAnimationComponent', () => {
-  let component: QuickSortAnimationComponent;
-  let fixture: ComponentFixture<QuickSortAnimationComponent>;
+  let component: BubbleSortAnimationComponent;
+  let fixture: ComponentFixture<BubbleSortAnimationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuickSortAnimationComponent]
+      imports: [BubbleSortAnimationComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(QuickSortAnimationComponent);
+    fixture = TestBed.createComponent(BubbleSortAnimationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

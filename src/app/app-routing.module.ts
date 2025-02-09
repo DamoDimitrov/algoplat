@@ -8,6 +8,7 @@ import {QueueComponent} from "./pages/queue/queue.component";
 import {ArrayComponent} from "./pages/array/array.component";
 
 import {QuickSortComponent} from "./pages/sorting/quick-sort/quick-sort.component";
+import { BubbleSortComponent } from './pages/sorting/bubble-sort/bubble-sort.component';
 
 const routes: Routes = [
   { path: '', component: MainPageContentComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'bubbleSort',
-        component: QuickSortComponent
+        component: BubbleSortComponent
       },
       {
         path: 'mergeSort',
