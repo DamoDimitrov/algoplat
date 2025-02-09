@@ -4,11 +4,11 @@ import {HelperFunctions} from "../../../../utils/HelperFunctions";
 import {SortDataModel} from "../../shared/models/SortDataModel";
 
 @Component({
-  selector: 'quick-sort-input',
-  templateUrl: './quick-sort-input.component.html',
-  styleUrl: './quick-sort-input.component.scss'
+  selector: 'bubble-sort-input',
+  templateUrl: './bubble-sort-input.component.html',
+  styleUrl: './bubble-sort-input.component.scss'
 })
-export class QuickSortInputComponent {
+export class BubbleSortInputComponent {
 
   form: FormGroup;
   @Output()

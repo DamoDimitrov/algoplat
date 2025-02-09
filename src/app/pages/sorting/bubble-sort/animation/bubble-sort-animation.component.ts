@@ -10,15 +10,15 @@ import {
 } from 'three';
 import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
-import { SortDataModel } from '../models/SortDataModel';
-import { SquareModel } from '../models/SquareModel';
+import { SortDataModel } from '../../shared/models/SortDataModel';
+import { SquareModel } from '../../shared/models/SquareModel';
 
 @Component({
-  selector: 'quick-sort-animation',
-  templateUrl: './quick-sort-animation.component.html',
-  styleUrl: './quick-sort-animation.component.scss',
+  selector: 'bubble-sort-animation',
+  templateUrl: './bubble-sort-animation.component.html',
+  styleUrl: './bubble-sort-animation.component.scss',
 })
-export class QuickSortAnimationComponent {
+export class BubbleSortAnimationComponent {
   @ViewChild('canvasElement')
   canvasRef: ElementRef;
 
