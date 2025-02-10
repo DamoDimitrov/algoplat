@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <form [formGroup]="form">
+    <input formControlName="inputData" class="input-field" type="text">
+    <input formControlName="searchedData" class="input-field" type="text">
+    <div class="sort-type-wrapper">
+    </div>
+    <button (click)="getData()" id="submit-btn">{{ 'SEARCH' | translate}}</button>
+  </form>
+</div>

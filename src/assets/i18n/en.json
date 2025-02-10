@@ -11,6 +11,7 @@
   "ASCENDING": "Ascending",
   "DESCENDING": "Descending",
   "SORT": "Sort",
+  "SEARCH": "Search",
   "algorithmTypes": [
     {
       "label": "Sorting",

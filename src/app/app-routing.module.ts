@@ -10,6 +10,7 @@ import {ArrayComponent} from "./pages/array/array.component";
 import {QuickSortComponent} from "./pages/sorting/quick-sort/quick-sort.component";
 import { BubbleSortComponent } from './pages/sorting/bubble-sort/bubble-sort.component';
 import { MergeSortComponent } from './pages/sorting/merge-sort/merge-sort.component';
+import { LinearSearchComponent } from './pages/searching/linear-search/linear-search.component';
 
 const routes: Routes = [
   { path: '', component: MainPageContentComponent },
@@ -39,11 +40,11 @@ const routes: Routes = [
     children: [
       {
         path: 'sequentialSearch',
-        component: QuickSortComponent
+        component: LinearSearchComponent
       },
       {
         path: 'binarySearch',
-        component: QuickSortComponent
+        component: LinearSearchComponent
       }
     ]
   },
