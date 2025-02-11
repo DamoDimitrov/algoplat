@@ -41,7 +41,7 @@
       "algorithms": [
         {
           "label": "Линейно Търсене",
-          "source": "searching/sequentialSearch",
+          "source": "searching/linearSearch",
           "sourceCode": ""
         },
         {

@@ -19,6 +19,7 @@ import {QuickSortModule} from "./pages/sorting/quick-sort/quick-sort.module";
 import { BubbleSortModule } from './pages/sorting/bubble-sort/bubble-sort.module';
 import { MergeSortModule } from './pages/sorting/merge-sort/merge-sort.module';
 import { LinearSearchModule } from './pages/searching/linear-search/linear-search.module';
+import { BinarySearchModule } from './pages/searching/binary-search/binary-search.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LinearSearchModule } from './pages/searching/linear-search/linear-searc
     BubbleSortModule,
     MergeSortModule,
     LinearSearchModule,
+    BinarySearchModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

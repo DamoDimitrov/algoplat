@@ -40,8 +40,8 @@
       "source": "searching",
       "algorithms": [
         {
-          "label": "Sequential Search",
-          "source": "sequentialsearch",
+          "label": "Linear Search",
+          "source": "linearSearch",
           "sourceCode": ""
         },
         {
