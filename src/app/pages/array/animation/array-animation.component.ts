@@ -10,8 +10,8 @@ import {
   Scene,
   WebGLRenderer
 } from "three";
-import {FontLoader} from "three/examples/jsm/loaders/FontLoader";
-import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
+import { Font, FontLoader } from "three/examples/jsm/loaders/FontLoader";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
 @Component({
   selector: 'animation',
@@ -37,6 +37,9 @@ export class ArrayAnimationComponent {
 
   borderPadding = 0.2;
   rectWidth = 2;
+  numbersGeometryArray: Mesh[] = [];
+  tempNumberGeometry: Mesh = null;
+  font: Font;
   sqArr: Mesh[] = []
   borderArr: LineSegments[] = [];
   tempRect: Mesh = null;
@@ -45,6 +48,7 @@ export class ArrayAnimationComponent {
   afterViewInitExecuted = false;
   activeAnimation = false;
 
+  defaultYCellPosition = -(this.rectWidth / 2 + this.borderPadding);
   defaultYRectanglePosition = -(this.rectWidth / 2 + this.borderPadding);
 
   ngOnInit() {}
@@ -52,6 +56,10 @@ export class ArrayAnimationComponent {
   ngOnChanges(change: SimpleChanges) {
     if (this.afterViewInitExecuted) {
       if (change['arrayData']) {
+        this.drawArrayOfCells();
+      } else if (change['setNumberByIndexData']) {
+        // this.activeAnimation = true;
+        this.setNumberToIndexInCells();
         this.drawArrayOfRectangles();
       } else if (change['setNumberByIndexData']) {
         // this.activeAnimation = true;
@@ -96,14 +104,20 @@ export class ArrayAnimationComponent {
     this.canvas.height = this.canvas.parentElement.clientHeight;
   }
 
-  drawArrayOfRectangles(): void {
+  drawArrayOfCells(): void {
     this.scene.clear();
-    this.drawBorders()
-    for (let [index, number] of this.arrayData.entries()) {
-      this.drawRectangle(index, number, true);
-    }
 
-    this.renderer.render(this.scene, this.camera);
+    this.drawBorders()
+
+    const fontLoader = new FontLoader();
+    fontLoader.load('assets/fonts/helvetiker_regular.typeface.json', (font) => {
+      this.font = font;
+      // Draw cells after the font is loaded
+      for(let i = 0; i < this.arrayData.length; i++) {
+        this.drawCell(i, this.arrayData[i]);
+      }
+      this.renderer.render(this.scene, this.camera);
+    })
   }
 
   private drawBorders(): void {
@@ -123,54 +137,66 @@ export class ArrayAnimationComponent {
     this.renderer.render(this.scene, this.camera);
   }
 
-  drawRectangle(index: number, number: number, addToArray: boolean): void {
-    const geometry = new THREE.PlaneGeometry(this.rectWidth, this.rectWidth);
-    const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+  private drawCell(index: number, number: number): void {
 
-    const bordersLength = this.arrayData.length * this.rectWidth + (this.arrayData.length + 1) * this.borderPadding;
-    const X = -bordersLength / 2 + (this.borderPadding + this.rectWidth / 2) + index * (this.rectWidth + this.borderPadding);
-    let Y = this.defaultYRectanglePosition;
+    const lineMaterial = new THREE.LineBasicMaterial({color: 0x000000})
+    const bordersLengthLeftPart = - ((this.arrayData.length * this.rectWidth + (this.arrayData.length + 1) * this.borderPadding) / 2);
 
-    mesh.position.setX(X);
-    if (addToArray) {
-      mesh.position.setY(Y);
-      this.sqArr[index] = mesh;
-    } else {
-      Y += 2 * this.rectWidth + (3 * this.borderPadding);
-      mesh.position.setY(Y);
-      this.tempRect = mesh;
+    let points = [];
+    points.push(new THREE.Vector2(bordersLengthLeftPart + ((index + 1) * this.borderPadding) + (index * this.rectWidth), -this.borderPadding));
+    points.push(new THREE.Vector2(bordersLengthLeftPart + ((index + 1) * this.borderPadding) + (index * this.rectWidth), -this.borderPadding - this.rectWidth));
+    points.push(new THREE.Vector2(bordersLengthLeftPart + ((index + 1) * this.borderPadding) + ((index + 1) * this.rectWidth), -this.borderPadding - this.rectWidth));
+    points.push(new THREE.Vector2(bordersLengthLeftPart + ((index + 1) * this.borderPadding) + ((index + 1) * this.rectWidth), -this.borderPadding));
+
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+    const line = new THREE.Line(geometry, lineMaterial);
+    this.scene.add(line);
+
+    //Add the number in the cell
+    this.addNumberInCell(number, bordersLengthLeftPart, index, false);
+
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  private addNumberInCell(number: number, bordersLengthLeftPart: number, index: number, addTemp) {
+    if (!this.font) {
+      return;
     }
-    this.scene.add(mesh);
+    const textGeometry = new TextGeometry(number === undefined? '' : number.toString(), {
+      font: this.font,
+      size: 0.7,
+      height: 0,
+    });
 
-    // Draw Rectangle Borders
-    this.drawRectangleBorders(geometry, X, Y, index, addToArray);
+    textGeometry.computeBoundingBox();
+    const textWidth = textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x;
+    const textHeight = textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y;
 
-    // Add the number in the center of the rectangle
-    // const loader = new FontLoader();
-    // loader.load('assets/helvetiker_regular.typeface.json', (font) => {
-    //   const textGeometry = new TextGeometry(number.toString(), {
-    //     font: font,
-    //     size: 10,
-    //     height: 1
-    //   });
-    //   const textMaterial = new THREE.MeshBasicMaterial({ color: 0x000000, opacity: 1 });
-    //   const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-    //
-    //   // Calculate text bounding box and position
-    //   textGeometry.computeBoundingBox();
-    //   const textWidth = textGeometry.boundingBox?.max.x - textGeometry.boundingBox?.min.x;
-    //   const textHeight = textGeometry.boundingBox?.max.y - textGeometry.boundingBox?.min.y;
-    //
-    //   if (textWidth !== undefined && textHeight !== undefined) {
-    //     textMesh.position.set(X - textWidth / 2, Y + textHeight / 2, 0);
-    //   } else {
-    //     console.error('Failed to compute text bounding box.');
-    //   }
-    //
-    //   this.scene.add(textMesh);
-    // }, undefined, (error) => {
-    //   console.error('Failed to load font:', error);
-    // });
+    const xOffset = this.borderPadding + bordersLengthLeftPart - textWidth / 2
+    const yOffset = -textHeight / 2
+    textGeometry.translate( xOffset, yOffset, 0);
+
+    const material = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    const textMesh = new Mesh(textGeometry, material);
+
+    const xPosition = index * (this.rectWidth + this.borderPadding) + this.rectWidth / 2;
+    const yPosition = !addTemp ? this.defaultYCellPosition : this.defaultYCellPosition + this.rectWidth;
+    textMesh.position.set(xPosition, yPosition, 0);
+
+    this.scene.add(textMesh);
+  }
+
+  setNumberToIndexInCells() {
+    let number = this.setNumberByIndexData['number'];
+    let index = this.setNumberByIndexData['index'];
+
+    const bordersLengthLeftPart = - ((this.arrayData.length * this.rectWidth + (this.arrayData.length + 1) * this.borderPadding) / 2);
+
+    this.addNumberInCell(number, bordersLengthLeftPart, index, true)
+    this.scene.remove(this.numbersGeometryArray[index])
+
+    this.renderer.render(this.scene, this.camera);
   }
 
   private drawRectangleBorders(geometry: PlaneGeometry, X: number, Y: number, index : number, addToArray: boolean) {

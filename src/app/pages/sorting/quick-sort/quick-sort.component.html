@@ -1,1 +1,7 @@
-<p>quick-sort works!</p>
+<div class="content-wrapper">
+  <h1 class="header">{{algoInformation.label}}</h1>
+  <quick-sort-animation #animationComponent></quick-sort-animation>
+  <quick-sort-input (inputDataEmitter)="handleInputDataEmitted($event)" ></quick-sort-input>
+<!--  <information></information>-->
+  <!--  <tabs-window></tabs-window>-->
+</div>

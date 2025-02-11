@@ -1,10 +1,10 @@
 <div class="content-wrapper">
   <h1 class="header">Stack</h1>
-  <animation #animationComponent></animation>
-  <user-input
-    (peekBtnEventEmitter)="handlePeekEvent()"
+  <stack-animation #animationComponent></stack-animation>
+  <stack-user-input 
+    (peekBtnEventEmitter)="handlePeekEvent()" 
     (pushBtnEventEmitter)="handlePushEvent()"
-    (popBtnEventEmitter)="handlePopEvent()"></user-input>
+    (popBtnEventEmitter)="handlePopEvent()"></stack-user-input>
   <information></information>
-<!--  <tabs-window></tabs-window>-->
+  <!--  <tabs-window></tabs-window>-->
 </div>

@@ -70,6 +70,9 @@
               "buildTarget": "project:build:development"
             }
           },
+          "options": {
+            "port": 4002
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -93,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9a8f4146-db68-47c2-9461-d1dcc520ce0b"
   }
 }

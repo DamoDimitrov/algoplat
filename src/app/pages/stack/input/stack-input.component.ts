@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'user-input',
+  selector: 'stack-user-input',
   templateUrl: './stack-input.component.html',
-  styleUrl: './stack-input.component.scss'
+  styleUrl: './stack-input.component.scss',
 })
 export class StackInputComponent {
   @Output()

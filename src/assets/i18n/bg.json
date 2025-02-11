@@ -8,6 +8,10 @@
   "FACULTY_NAME_LABEL":"Физико-технологичен факултет",
   "AUTHOR_NAME_LABEL":"Дамян Димитров",
   "YEAR_LABEL":"2024",
+  "ASCENDING": "Възходящ",
+  "DESCENDING": "Низходящ",
+  "SORT": "Сортирай",
+  "SEARCH": "Търси",
   "algorithmTypes": [
     {
       "label": "Сортиращи",

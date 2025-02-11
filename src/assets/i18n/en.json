@@ -8,6 +8,10 @@
   "FACULTY_NAME_LABEL": "Faculty of Physics and Technology",
   "AUTHOR_NAME_LABEL": "Damyan Dimitrov",
   "YEAR_LABEL": "2024",
+  "ASCENDING": "Ascending",
+  "DESCENDING": "Descending",
+  "SORT": "Sort",
+  "SEARCH": "Search",
   "algorithmTypes": [
     {
       "label": "Sorting",

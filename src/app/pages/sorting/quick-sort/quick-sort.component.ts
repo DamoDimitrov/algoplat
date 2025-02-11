@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, ViewChild} from '@angular/core';
+import {QuickSortAnimationComponent} from "../shared/animation/quick-sort-animation.component";
+import {SortDataModel} from "../shared/models/SortDataModel";
+
 
 @Component({
   selector: 'app-quick-sort',
@@ -7,5 +9,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './quick-sort.component.scss'
 })
 export class QuickSortComponent {
+  algoInformation;
 
+  @ViewChild('animationComponent')
+  animationComponent: QuickSortAnimationComponent;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.algoInformation = history.state;
+  }
+
+  handleInputDataEmitted(data: SortDataModel) {
+    this.animationComponent.sortData = data;
+    this.animationComponent.drawData();
+  }
 }

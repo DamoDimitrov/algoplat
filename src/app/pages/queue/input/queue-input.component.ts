@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'user-input',
+  selector: 'queue-user-input',
   templateUrl: './queue-input.component.html',
-  styleUrl: './queue-input.component.scss'
+  styleUrl: './queue-input.component.scss',
 })
 export class QueueInputComponent {
   @Output()
