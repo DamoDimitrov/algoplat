@@ -461,16 +461,22 @@ export class LinearSearchAnimationComponent {
   for (let i = 0; i < numbersArr.length; i++) {
     ((Object.values(this.sqArr[i])[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
     await this.moveSquareUp(numbersArr[i], i);    
+
     if (numbersArr[i] === searchedNumber) {
       ((Object.values(this.sqArr[i])[0] as SquareModel).index.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
       this.renderer.render(this.scene, this.camera);
 
       return i;
     }
+
     await this.moveSquareDown(numbersArr[i], i);
     ((Object.values(this.sqArr[i])[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0x000000);
     this.renderer.render(this.scene, this.camera);
   }
+
+  const negativeIndex = this.addIndexes(-1);
+  negativeIndex.material.color.set(0xeb4034);
+  this.renderer.render(this.scene, this.camera);
   return -1;
   }
 }
