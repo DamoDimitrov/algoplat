@@ -4,6 +4,7 @@ import {Mesh, PerspectiveCamera, PointLight, Scene, WebGLRenderer} from 'three';
 
 @Component({
   selector: 'stack-animation',
+
   templateUrl: './stack-animation.component.html',
   styleUrl: './stack-animation.component.scss'
 })
@@ -95,6 +96,7 @@ export class StackAnimationComponent {
     this.sqArr.push(mesh)
     this.scene.add(mesh);
     this.pushToStack(mesh);
+
   }
 
   pushToStack(rectangle): void {
@@ -212,4 +214,37 @@ export class StackAnimationComponent {
 
     return yAxis === yCoordinatesAboveBorder;
   }
+
+  drawRectangle() {
+    if (this.sqArr.length === this.defaultStackSize) {
+      this.activeAnimation = false;
+      return;
+    }
+    const geometry = new THREE.PlaneGeometry(this.rectWidth, this.rectWidth);
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color: 0x000000}))
+
+    mesh.position.setY(this.rectWidth * 1.5)
+    this.sqArr.push(mesh)
+    this.scene.add(mesh);
+    this.pushToStack(mesh);
   }
+
+  private setCanvasDimensions() {
+    this.canvas.width = this.canvas.parentElement.clientWidth;
+    this.canvas.height = this.canvas.parentElement.clientHeight;
+  }
+
+  private drawStackBorders() {
+    const lineMaterial = new THREE.LineBasicMaterial({color: 0x000000});
+    let points = [];
+    points.push(new THREE.Vector2(-this.rectWidth / 2 - this.borderPadding, this.rectWidth));
+    points.push(new THREE.Vector2(-this.rectWidth / 2 - this.borderPadding, this.rectWidth - this.defaultStackSize * (this.rectWidth + this.borderPadding)));
+    points.push(new THREE.Vector2(this.rectWidth / 2 + this.borderPadding, this.rectWidth - this.defaultStackSize * (this.rectWidth + this.borderPadding)));
+    points.push(new THREE.Vector2(this.rectWidth / 2 + this.borderPadding, this.rectWidth));
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+    const line = new THREE.Line(geometry, lineMaterial);
+    this.scene.add(line);
+  }
+
+}

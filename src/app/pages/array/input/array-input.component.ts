@@ -41,6 +41,7 @@ export class ArrayInputComponent {
       let data = this.form.get('formData').get('arrayData').value;
 
       if (data !== null && data.trim() === '') {
+
         console.error('Array data is Empty.')
         return;
       } else {
@@ -85,6 +86,16 @@ export class ArrayInputComponent {
 
     if (parsedIndex < 0 || parsedIndex > this.numbersArray.length - 1) {
       console.error('Error')
+    if (value !== '' && index !== undefined) {
+      parsedValue = this.getNumbersFromData(value)[0];
+      parsedIndex = this.getNumbersFromData(index)[0];
+    } else {
+      console.log('Not enough data');
+      return;
+    }
+
+    if (parsedIndex < 0 || parsedIndex > this.numbersArray.length - 1) {
+      console.log('Error')
       return;
     }
 

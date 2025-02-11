@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {QuickSortAnimationComponent} from "../shared/animation/quick-sort-animation.component";
 import {SortDataModel} from "../shared/models/SortDataModel";
 
+
 @Component({
   selector: 'app-quick-sort',
   templateUrl: './quick-sort.component.html',
@@ -23,5 +24,4 @@ export class QuickSortComponent {
     this.animationComponent.sortData = data;
     this.animationComponent.drawData();
   }
-
 }

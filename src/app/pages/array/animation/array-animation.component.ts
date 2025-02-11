@@ -1,8 +1,11 @@
-import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
+import {Component, ElementRef, Input, SimpleChanges, ViewChild} from '@angular/core';
 import * as THREE from "three";
 import {
-  Mesh,
+  BufferGeometry,
+  LineSegments, Material,
+  Mesh, Object3DEventMap,
   PerspectiveCamera,
+  PlaneGeometry,
   PointLight,
   Scene,
   WebGLRenderer
@@ -37,11 +40,16 @@ export class ArrayAnimationComponent {
   numbersGeometryArray: Mesh[] = [];
   tempNumberGeometry: Mesh = null;
   font: Font;
+  sqArr: Mesh[] = []
+  borderArr: LineSegments[] = [];
+  tempRect: Mesh = null;
+  tempBorder: LineSegments = null;
 
   afterViewInitExecuted = false;
   activeAnimation = false;
 
   defaultYCellPosition = -(this.rectWidth / 2 + this.borderPadding);
+  defaultYRectanglePosition = -(this.rectWidth / 2 + this.borderPadding);
 
   ngOnInit() {}
 
@@ -52,6 +60,10 @@ export class ArrayAnimationComponent {
       } else if (change['setNumberByIndexData']) {
         // this.activeAnimation = true;
         this.setNumberToIndexInCells();
+        this.drawArrayOfRectangles();
+      } else if (change['setNumberByIndexData']) {
+        // this.activeAnimation = true;
+        this.setNumberToIndexInRectangles();
       }
     }
   }
@@ -106,7 +118,6 @@ export class ArrayAnimationComponent {
       }
       this.renderer.render(this.scene, this.camera);
     })
-
   }
 
   private drawBorders(): void {
@@ -186,5 +197,84 @@ export class ArrayAnimationComponent {
     this.scene.remove(this.numbersGeometryArray[index])
 
     this.renderer.render(this.scene, this.camera);
+  }
+
+  private drawRectangleBorders(geometry: PlaneGeometry, X: number, Y: number, index : number, addToArray: boolean) {
+    const edgesGeometry = new THREE.EdgesGeometry(geometry);
+    const edgesMaterial = new THREE.LineBasicMaterial({color: 0x000000});
+    const border = new THREE.LineSegments(edgesGeometry, edgesMaterial);
+
+    // Set border position to match the rectangle
+    border.position.setX(X);
+    border.position.setY(Y);
+    if (addToArray) {
+      this.borderArr[index] = border;
+    } else {
+      this.tempBorder = border;
+    }
+    this.scene.add(border);
+  }
+
+  setNumberToIndexInRectangles() {
+    const index = this.setNumberByIndexData['index'];
+    const sq = this.sqArr[index];
+
+    //Check if the animation is still active or if there is no such square
+    if (!this.activeAnimation || sq === undefined) {
+      return;
+    }
+    const border = this.borderArr[index];
+
+    // Creates the rectangle that would be added to the array
+    if (this.tempRect === null) {
+      this.drawRectangle(index, this.setNumberByIndexData['number'], false);
+    }
+
+    let yOfExtractedRectangle = this.defaultYRectanglePosition + this.rectWidth + (2 * this.borderPadding);
+    const bordersLength = this.arrayData.length * this.rectWidth + (this.arrayData.length + 1) * this.borderPadding;
+    const xOfMovedToLeftRectangle = -bordersLength / 2 + (this.borderPadding + this.rectWidth / 2) + (index - 1) * (this.rectWidth + this.borderPadding);
+
+    //Extracting the rectangle that will be replaced
+    if (!this.isRectExtracted(sq, yOfExtractedRectangle)) {
+      //Moving the rectangle out of the array by the Y axis
+      sq.position.y += 0.1;
+      border.position.y += 0.1;
+    } else if(this.isRectExtracted(sq, yOfExtractedRectangle) && !(Number(sq.position.x.toFixed(1)) === Number(xOfMovedToLeftRectangle.toFixed(1)))) {
+      //Moving the rectangle to the left to make way of the new rectangle
+      sq.position.x -= 0.1;
+      border.position.x -= 0.1;
+    } else if (!this.isNewRectPushed()) {
+      //Moving the new rectangle down into position in the array
+        this.tempRect.position.y -= 0.1;
+        this.tempBorder.position.y -= 0.1;
+    } else {
+      this.activeAnimation = false;
+      //Remove the extracted square from the scene
+      this.scene.remove(sq);
+      this.scene.remove(border)
+
+      //Set the new square on the index of the old one
+      this.sqArr[index] = this.tempRect;
+      this.borderArr[index] = this.tempBorder;
+
+      //Reset the temp variables
+      this.tempRect = null;
+      this.tempBorder = null;
+
+      this.renderer.render(this.scene, this.camera);
+
+      return;
+    }
+
+    this.renderer.render(this.scene, this.camera);
+    requestAnimationFrame(this.setNumberToIndexInRectangles.bind(this));
+  }
+
+  private isRectExtracted(sq: Mesh<BufferGeometry, Material | Material[], Object3DEventMap>, yOfExtractedRectangle: number) {
+    return Number(sq.position.y.toFixed(1)) === Number(yOfExtractedRectangle.toFixed(1));
+  }
+
+  private isNewRectPushed() {
+    return Number(this.tempRect.position.y.toFixed(1)) === this.defaultYRectanglePosition;
   }
 }

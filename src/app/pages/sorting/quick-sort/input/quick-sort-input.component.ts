@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HelperFunctions} from "../../../../utils/HelperFunctions";
 import {SortDataModel} from "../../shared/models/SortDataModel";
 
+
 @Component({
   selector: 'quick-sort-input',
   templateUrl: './quick-sort-input.component.html',

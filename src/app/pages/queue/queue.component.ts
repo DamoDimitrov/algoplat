@@ -8,7 +8,6 @@ import {QueueAnimationComponent} from "./animation/queue-animation.component";
 })
 export class QueueComponent {
   @ViewChild('animationComponent')
-
   animationComponent: QueueAnimationComponent;
 
   handlePushEvent() {

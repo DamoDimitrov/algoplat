@@ -4,6 +4,7 @@ import * as THREE from "three";
 
 @Component({
   selector: 'queue-animation',
+
   templateUrl: './queue-animation.component.html',
   styleUrl: './queue-animation.component.scss'
 })

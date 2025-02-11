@@ -6,6 +6,7 @@ import {StackComponent} from "./pages/stack/stack.component";
 import {StackModule} from "./pages/stack/stack.module";
 import {QueueComponent} from "./pages/queue/queue.component";
 import {ArrayComponent} from "./pages/array/array.component";
+import {QuickSortComponent} from "./pages/sorting/quick-sort/quick-sort.component";
 
 import {QuickSortComponent} from "./pages/sorting/quick-sort/quick-sort.component";
 import { BubbleSortComponent } from './pages/sorting/bubble-sort/bubble-sort.component';
