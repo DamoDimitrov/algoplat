@@ -7,9 +7,14 @@ import {QueueAnimationComponent} from "./animation/queue-animation.component";
   styleUrl: './queue.component.scss'
 })
 export class QueueComponent {
+  algoInformation;
   @ViewChild('animationComponent')
 
   animationComponent: QueueAnimationComponent;
+
+  ngOnInit() {
+    this.algoInformation = history.state;
+  }
 
   handlePushEvent() {
     if (this.animationComponent.activeAnimation === false) {

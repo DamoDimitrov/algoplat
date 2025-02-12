@@ -13,8 +13,4 @@ export class SourceCodeComponent {
   get formattedSourceCode(): string {
     return this.sourceCode.replace(/\\n/g, '\n');
   }
-
-  ngOnInit() {
-    console.log(this.sourceCode);
-  }
 }

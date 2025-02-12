@@ -4,6 +4,8 @@ import {QueueAnimationComponent} from "./animation/queue-animation.component";
 import {QueueInputComponent} from "./input/queue-input.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { QueueComponent } from './queue.component';
+import { InformationModule } from 'src/app/components/information/information.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -14,8 +16,10 @@ import { QueueComponent } from './queue.component';
   ],
   imports: [
     CommonModule,
+    TranslateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InformationModule
   ]
 })
 export class QueueModule {

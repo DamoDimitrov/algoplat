@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import {StackComponent} from "./stack.component";
 import {StackInputComponent} from "./input/stack-input.component";
 import {StackAnimationComponent} from "./animation/stack-animation.component";
-import {StackTabsWindowComponent} from "./tabs-window/stack-tabs-window.component";
-import {StackInformationComponent} from "./information/stack-information.component";
+import { TranslateModule } from '@ngx-translate/core';
+import { InformationModule } from 'src/app/components/information/information.module';
 
 
 
@@ -12,12 +12,12 @@ import {StackInformationComponent} from "./information/stack-information.compone
   declarations: [
     StackComponent,
     StackInputComponent,
-    StackAnimationComponent,
-    StackTabsWindowComponent,
-    StackInformationComponent
+    StackAnimationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule,
+    InformationModule
   ]
 })
 export class StackModule { }

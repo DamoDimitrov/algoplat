@@ -1,8 +1,9 @@
 <div class="content-wrapper">
     <h1 class="header">{{algoInformation.label}}</h1>
+    <br>
+    <information [algoInformation]="algoInformation"></information>
     <binary-search-animation #animationComponent></binary-search-animation>
     <binary-search-input (inputDataEmitter)="handleInputDataEmitted($event)" ></binary-search-input>
-  <!--  <information></information>-->
     <source-code [sourceCode]="algoInformation.sourceCode"></source-code>
   </div>
   

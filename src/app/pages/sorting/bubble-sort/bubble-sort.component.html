@@ -1,8 +1,9 @@
 <div class="content-wrapper">
     <h1 class="header">{{algoInformation.label}}</h1>
+    <br>
+    <information [algoInformation]="algoInformation"></information>
     <bubble-sort-animation #animationComponent></bubble-sort-animation>
     <bubble-sort-input (inputDataEmitter)="handleInputDataEmitted($event)" ></bubble-sort-input>
-  <!--  <information></information>-->
     <source-code [sourceCode]="algoInformation.sourceCode"></source-code>
   </div>
   

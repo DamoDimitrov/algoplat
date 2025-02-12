@@ -7,8 +7,14 @@ import {StackAnimationComponent} from "./animation/stack-animation.component";
   styleUrl: './stack.component.scss'
 })
 export class StackComponent {
+  algoInformation;
+
   @ViewChild('animationComponent')
   animationComponent: StackAnimationComponent;
+
+  ngOnInit() {
+    this.algoInformation = history.state;
+  }
 
   handlePushEvent() {
     if (this.animationComponent.activeAnimation === false) {

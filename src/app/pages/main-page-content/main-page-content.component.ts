@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
+import { Subject, takeUntil } from 'rxjs';
+import { AlgorithmsService } from 'src/app/services/algorithms.service';
 
 @Component({
   selector: 'app-main-page-content',
@@ -7,38 +9,36 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./main-page-content.component.scss'],
 })
 export class MainPageContentComponent {
+  //Todo add featured algos
 
-  constructor(private translate: TranslateService) {
+  $destroy: Subject<void> = new Subject<void>();
+
+  typesOfAlgorithms;
+
+  constructor(
+    private translate: TranslateService,
+    private algorithmService: AlgorithmsService
+  ) {
   }
 
   ngOnInit(): void {
+    this.fetchAlgorithmTypes();
+    this.reFetchAlgoTypesOnLangChange();
   }
 
-  featuredAlgorithms = [
-    {
-      label: "Quick Sort",
-      source: "sorting/quickSort",
-      imgSource: 'assets/imgs/Bubble-sort-0.png'
-    }, {
-      label: "Bubble Sort",
-      source: "sorting/bubbleSort",
-      imgSource: ''
-    }, {
-      label: "Sequential Search",
-      source: "searching/sequentialSearch",
-      imgSource: ''
-    }, {
-      label: "Binary Search",
-      source: "binarySearch",
-      imgSource: ''
-    }, {
-      label: "Array",
-      source: "array",
-      imgSource: ''
-    }, {
-      label: "Stack",
-      source: "stack",
-      imgSource: ''
+  fetchAlgorithmTypes(): void {
+    this.algorithmService.getAllCategoriesAndAlgorithms()
+      .pipe(takeUntil(this.$destroy))
+      .subscribe(result =>
+        this.typesOfAlgorithms = result.flatMap(obj => (obj.algorithms || []))
+      );
     }
-  ];
+  
+    private reFetchAlgoTypesOnLangChange() {
+      this.translate.onLangChange
+        .pipe(takeUntil(this.$destroy))
+        .subscribe(() => {
+          this.fetchAlgorithmTypes();
+        });
+    }
 }

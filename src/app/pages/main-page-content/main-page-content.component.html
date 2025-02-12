@@ -6,9 +6,9 @@
   </div>
   <div class="algorithm-cards-wrapper">
     <div class="card"
-    *ngFor="let algorithm of featuredAlgorithms">
+    *ngFor="let algorithm of typesOfAlgorithms">
       <h1>{{algorithm.label}}</h1>
-      <a [routerLink]="'/' + algorithm.source">
+      <a [routerLink]="'/' + algorithm.source" [state]="algorithm">
 <!--        <img src="{{algorithm.imgSource}}" alt="">-->
       </a>
     </div>

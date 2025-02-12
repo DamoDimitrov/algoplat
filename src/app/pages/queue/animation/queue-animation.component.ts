@@ -113,7 +113,7 @@ export class QueueAnimationComponent {
     (sq.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
 
     if (Number(sq.position.y.toFixed(1)) !==
-      Number((this.rectWidth * 1.5 - this.borderPadding - this.defaultStackSize * (this.rectWidth + this.borderPadding)).toFixed(1))) {
+      Number((this.rectWidth * 1.5 - this.defaultStackSize * (this.rectWidth + this.borderPadding)).toFixed(1))) {
       sq.position.y -= 0.1;
       for (let i = 1; i < this.sqArr.length; i++) {
         if(this.sqArr[i] !== undefined) {
