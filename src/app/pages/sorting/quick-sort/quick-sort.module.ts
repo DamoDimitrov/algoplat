@@ -5,6 +5,7 @@ import {QuickSortAnimationComponent} from "../shared/animation/quick-sort-animat
 import {QuickSortInputComponent} from "./input/quick-sort-input.component";
 import {TranslateModule} from "@ngx-translate/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SourceCodeModule } from 'src/app/components/source-code/source-code.module';
 
 
 @NgModule({
@@ -14,11 +15,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     QuickSortInputComponent
   ],
     imports: [
-        CommonModule,
-        TranslateModule,
-      FormsModule,
-      ReactiveFormsModule
-    ]
+    CommonModule,
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SourceCodeModule
+]
 })
 export class QuickSortModule {
 }

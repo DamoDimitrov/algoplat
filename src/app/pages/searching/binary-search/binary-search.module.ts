@@ -5,6 +5,7 @@ import { BinarySearchInputComponent } from './input/binary-search-input.componen
 import { BinarySearchAnimationComponent } from './animation/binary-search-animation.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SourceCodeModule } from 'src/app/components/source-code/source-code.module';
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     TranslateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SourceCodeModule
   ]
 })
 export class BinarySearchModule { }

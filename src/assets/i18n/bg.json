@@ -20,13 +20,13 @@
         {
           "label": "Бързо Сортиране",
           "source": "sorting/quickSort",
-          "sourceCode": "",
+          "sourceCode": "int partition(int arr[], int low, int high) {\\n    int pivot = arr[high];\\n    int i = low - 1;\\n\\n    for (int j = low; j < high; j++) {\\n        if (arr[j] < pivot) {\\n            i++;\\n            swap(arr[i], arr[j]);\\n        }\\n    }\\n\\n    swap(arr[i + 1], arr[high]);\\n    return i + 1;\\n }\\n\\n void quickSort(int arr[], int low, int high) {\\n    if (low < high) {\\n        int pivotIndex = partition(arr, low, high);\\n\\n        quickSort(arr, low, pivotIndex - 1);\\n        quickSort(arr, pivotIndex + 1, high);\\n    }\\n }",
           "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
         },
         {
           "label": "Бъбъл Сортиране",
           "source": "sorting/bubbleSort",
-          "sourceCode": ""
+          "sourceCode": "void bubbleSort(int arr[], int n) {\\n    for (int i = 0; i < n - 1; i++) {\\n        for (int j = 0; j < n - i - 1; j++) {\\n            if (arr[j] > arr[j + 1]) {\\n                int temp = arr[j];\\n                arr[j] = arr[j + 1];\\n                arr[j + 1] = temp;\\n            }\\n        }\\n    }\\n }"
         },
         {
           "label": "Мърдж Сортиране",
@@ -42,12 +42,12 @@
         {
           "label": "Линейно Търсене",
           "source": "searching/linearSearch",
-          "sourceCode": ""
+          "sourceCode": "int linearSearch(int arr[], int n, int target) {\\n    for (int i = 0; i < n; i++) {\\n        if (arr[i] == target) {\\n            return i;\\n        }\\n    }\\n    return -1;\\n }"
         },
         {
           "label": "Бинарно Търсене",
           "source": "searching/binarySearch",
-          "sourceCode": ""
+          "sourceCode": "int binarySearch(int arr[], int left, int right, int target) {\\n    while (left <= right) {\\n        int mid = left + (right - left) / 2;\\n\\n        if (arr[mid] == target) {\\n            return mid;\\n        } else if (arr[mid] < target) {\\n            left = mid + 1;\\n        } else {\\n            right = mid - 1;\\n        }\\n    }\\n    return -1;\\n }"
         }
       ]
     },

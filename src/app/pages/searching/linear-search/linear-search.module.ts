@@ -5,6 +5,7 @@ import { LinearSearchAnimationComponent } from './animation/linear-search-animat
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LinearSearchInputComponent } from './input/linear-search-input.component';
+import { SourceCodeModule } from 'src/app/components/source-code/source-code.module';
 
 
 
@@ -18,7 +19,8 @@ import { LinearSearchInputComponent } from './input/linear-search-input.componen
     CommonModule,
     TranslateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SourceCodeModule
   ]
 })
 export class LinearSearchModule { }
