@@ -59,8 +59,10 @@
       content: '';
       width: 10em;
       height: 7em;
-      background-color: red;
       border-radius: 0.5em;
+      // border: 1px solid grey;
+      overflow: hidden;
+      box-shadow: #c5c5c5 2px 2px 2px 2px;
     }
 
     //img {
@@ -89,3 +91,8 @@
   }
 }
 
+img{
+  height: 112px;
+  width: 160px;
+  object-fit: cover;
+}

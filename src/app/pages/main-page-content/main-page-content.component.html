@@ -9,7 +9,8 @@
     *ngFor="let algorithm of typesOfAlgorithms">
       <h1>{{algorithm.label}}</h1>
       <a [routerLink]="'/' + algorithm.source" [state]="algorithm">
-<!--        <img src="{{algorithm.imgSource}}" alt="">-->
+      <img src={{algorithm.imgSource}}>
+
       </a>
     </div>
   </div>

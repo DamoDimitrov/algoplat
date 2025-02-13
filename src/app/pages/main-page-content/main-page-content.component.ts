@@ -30,7 +30,7 @@ export class MainPageContentComponent {
     this.algorithmService.getAllCategoriesAndAlgorithms()
       .pipe(takeUntil(this.$destroy))
       .subscribe(result =>
-        this.typesOfAlgorithms = result.flatMap(obj => (obj.algorithms || []))
+        this.typesOfAlgorithms = result.flatMap(obj => [...(obj.algorithms || []), ...(obj.structures || [])])
       );
     }
   
