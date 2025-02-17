@@ -47,13 +47,13 @@ export class BubbleSortInputComponent {
   }
 
   validateInputNumbers(data: number[]) {
-    if (data.length > 9 || data.length < 2) {
+    if (data.length > 9 || data.length < 1) {
       console.error('The Array is too long or too short');
       return false;
     }
 
-    if (data.some(n => n > 9 || n < -9)) {
-      console.error('The numbers should be bigger than -9 and smaller than 9');
+    if (data.some(n => n > 99 || n < -99)) {
+      console.error('The numbers should be bigger than -99 and smaller than 99');
       return false;
     }
 

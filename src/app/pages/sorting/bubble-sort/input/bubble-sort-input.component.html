@@ -1,6 +1,8 @@
 <div class="wrapper">
   <form [formGroup]="form">
-    <input formControlName="inputData" class="input-field" type="text">
+    <p style="color: red; text-align: left!important;">{{"INPUT_WARNING" | translate}}</p>
+    <label for="sortData">{{"SORTED_ARRAY_LABEL" | translate}}</label>
+    <input id="sortData" formControlName="inputData" class="input-field" type="text">
     <div class="sort-type-wrapper">
       <!-- <input formControlName="sortType" value="ASC" name="sortType" id="ascending-btn" class="radio-btn" type="radio" checked>
       <label class="radio-btn-label" for="ascending-btn">{{ 'ASCENDING' | translate}}</label>

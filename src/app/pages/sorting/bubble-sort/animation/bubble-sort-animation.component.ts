@@ -264,7 +264,7 @@ export class BubbleSortAnimationComponent {
       number === undefined ? '' : number.toString(),
       {
         font: this.font,
-        size: 1.3,
+        size: 1,
         height: 0,
       }
     );
@@ -401,6 +401,8 @@ export class BubbleSortAnimationComponent {
       isSwapped = false;
       for (let i = 0; i < numbersArr.length - 1; i++) {
         this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034));
+        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xeb4034));
+
         this.renderer.render(this.scene, this.camera);
 
         await Promise.all([
@@ -430,6 +432,7 @@ export class BubbleSortAnimationComponent {
         ]);
 
         this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0x000000));
+        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0x000000));
         this.renderer.render(this.scene, this.camera);
       }
     } while (isSwapped);

@@ -1,9 +1,10 @@
 <div class="wrapper">
   <form [formGroup]="form">
-    <input formControlName="inputData" class="input-field" type="text">
-    <input formControlName="searchedData" class="input-field" type="text">
-    <div class="sort-type-wrapper">
-    </div>
+    <p class="warning">{{"INPUT_WARNING" | translate}}</p>
+    <label for="arrayToSearch">{{"SEARCHED_ARRAY_LABEL" | translate}}</label>
+    <input id="arrayToSearch" formControlName="inputData" class="input-field" type="text">
+    <label for="searchedNumber">{{"SEARCHED_NUMBER_LABEL" | translate}}</label>
+    <input id="searchedNumber" formControlName="searchedData" class="input-field" type="text">
     <button (click)="getData()" id="submit-btn">{{ 'SEARCH' | translate}}</button>
   </form>
 </div>

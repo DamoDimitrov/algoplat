@@ -27,17 +27,19 @@ export class BinarySearchInputComponent {
   }
 
   getData(): void {
-    const dataToSearch = this.form.controls['inputData'].value;
+    const dataToSort = this.form.controls['inputData'].value;
     const searchedData = this.form.controls['searchedData'].value;
-    let formattedDataToSearch = [];
-    if (dataToSearch.trim().length !== 0 && searchedData !== '') {
-      formattedDataToSearch = HelperFunctions.getNumbersFromData(dataToSearch);
+    let formattedDataToSort = [];
+    let formattedSearchedDataToSort;
+    if (dataToSort.trim().length !== 0 && searchedData !== '') {
+      formattedDataToSort = HelperFunctions.getNumbersFromData(dataToSort);
+      formattedSearchedDataToSort = HelperFunctions.getNumbersFromData(searchedData);
     }
 
-    if (formattedDataToSearch.length !== 0) {
-      if (this.validateInputNumbers(formattedDataToSearch) && this.isSorted(formattedDataToSearch)) {
+    if (formattedDataToSort.length !== 0) {
+      if (this.validateInputNumbers(formattedDataToSort, formattedSearchedDataToSort)) {
         this.formattedData = new SearchDataModel();
-        this.formattedData.data = formattedDataToSearch;
+        this.formattedData.data = formattedDataToSort;
         this.formattedData.searchedData = searchedData;
 
         this.inputDataEmitter.emit(this.formattedData);
@@ -45,14 +47,20 @@ export class BinarySearchInputComponent {
     }
   }
 
-  validateInputNumbers(data: number[]) {
-    if (data.length > 9 || data.length < 2) {
+  validateInputNumbers(data: number[], searchedData) {
+    if (data.length > 9 || data.length < 1) {
       console.error('The Array is too long or too short');
+      return false;
+    } else if(searchedData.length > 1) {
+      console.log('Only one number can be searched')
       return false;
     }
 
-    if (data.some(n => n > 9 || n < -9)) {
-      console.error('The numbers should be bigger than -9 and smaller than 9');
+    if (data.some(n => n > 99 || n < -99)) {
+      console.error('The numbers should be bigger than -99 and smaller than 99');
+      return false;
+    } else if (searchedData > 99 || searchedData < -99) {
+      console.error('The numbers should be bigger than -99 and smaller than 99');
       return false;
     }
 

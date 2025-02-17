@@ -265,7 +265,7 @@ export class BinarySearchAnimationComponent {
       number === undefined ? '' : number.toString(),
       {
         font: this.font,
-        size: 1.3,
+        size: 1,
         height: 0,
       }
     );
@@ -329,7 +329,7 @@ export class BinarySearchAnimationComponent {
       number === undefined ? '' : number.toString(),
       {
         font: this.font,
-        size: 1.3,
+        size: 1.1,
         height: 0,
       }
     );
@@ -465,6 +465,8 @@ export class BinarySearchAnimationComponent {
     searchingInLeftHalf = false;
     const mid = Math.floor((left + right) / 2);
     ((Object.values(this.sqArr[mid])[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
+    ((Object.values(this.sqArr[mid])[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
+
     await this.moveSquareUp(numbersArr[mid], mid)
 
     if (numbersArr[mid] === searchedNumber) {
@@ -477,20 +479,23 @@ export class BinarySearchAnimationComponent {
 
       this.sqArr.slice(0, mid).forEach(e => {
         ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
-        ((Object.values(e)[0] as SquareModel).index.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1)
+        ((Object.values(e)[0] as SquareModel).index.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
+        ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
       });
     } else {
       right = mid - 1; // Search the left half
       searchingInLeftHalf = true;
       this.sqArr.slice(mid).forEach(e => {
         ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
-        ((Object.values(e)[0] as SquareModel).index.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1)
+        ((Object.values(e)[0] as SquareModel).index.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
+        ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
       });
     }
 
     await this.moveSquareDown(numbersArr[mid], mid);
     if (!searchingInLeftHalf) {
       ((Object.values(this.sqArr[mid])[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0x000000);
+      ((Object.values(this.sqArr[mid])[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0x000000);
       this.renderer.render(this.scene, this.camera);
     }
   }

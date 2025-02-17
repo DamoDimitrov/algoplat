@@ -3,6 +3,8 @@
   <br>
   <information [algoInformation]="algoInformation"></information>
   <stack-animation #animationComponent></stack-animation>
+  <p class="warning">{{"STACK_WARNING" | translate}}</p>
+
   <stack-user-input 
     (peekBtnEventEmitter)="handlePeekEvent()" 
     (pushBtnEventEmitter)="handlePushEvent()"

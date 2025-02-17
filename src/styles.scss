@@ -42,6 +42,12 @@ a {
 //   font-size: 0.5em;
 // }
 
+.warning {
+  color: red;
+  text-align: left!important;
+  display: block;
+}
+
 @media (max-width: 786px) {
   .container {
     padding: 3.5rem 0 0;

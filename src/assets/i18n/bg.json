@@ -16,6 +16,12 @@
   "POP": "Изваждане",
   "PEEK": "Надникване",
   "SOURCE_CODE": "Изходен код",
+  "SEARCHED_ARRAY_LABEL": "Въведете подреден масив от числа: ",
+  "SEARCHED_NUMBER_LABEL": "Въведете търсеното число: ",
+  "SORTED_ARRAY_LABEL": "Въведете масива от числа за сортиране: ",
+  "INPUT_WARNING": "За правилно визуализиране на анимациите използвайте числа между -99 и 99. Максималния брой елементи е 9.",
+  "STACK_WARNING": "Зададеният пример е със стек с максимална дължина 4 елемента",
+  "QUEUE_WARNING": "Зададеният пример е с опашка с максимална дължина 4 елемента",
   "algorithmTypes": [
     {
       "label": "Сортиращи",
@@ -33,7 +39,7 @@
           "source": "sorting/bubbleSort",
           "sourceCode": "void bubbleSort(int arr[], int n) {\\n    for (int i = 0; i < n - 1; i++) {\\n        for (int j = 0; j < n - i - 1; j++) {\\n            if (arr[j] > arr[j + 1]) {\\n                int temp = arr[j];\\n                arr[j] = arr[j + 1];\\n                arr[j + 1] = temp;\\n            }\\n        }\\n    }\\n }",
           "information": "Bubble Sort (Сортиране чрез мехурчета) е един от най-простите алгоритми за сортиране. Той работи, като многократно обхожда списъка, сравнява съседни елементи и ги разменя, ако са в грешен ред. Този процес се повтаря, докато списъкът не бъде напълно сортиран.",
-          "imgSource": "assets/images/bubble-sort.jpg"
+          "imgSource": "assets/images/bubble-sort.png"
         }
       ]
     },

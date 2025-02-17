@@ -3,6 +3,7 @@
   <br>
   <information [algoInformation]="algoInformation"></information>
   <queue-animation #animationComponent></queue-animation>
+  <p class="warning">{{"QUEUE_WARNING" | translate}}</p>
   <queue-user-input 
     (peekBtnEventEmitter)="handlePeekEvent()" 
     (pushBtnEventEmitter)="handlePushEvent()"

@@ -265,7 +265,7 @@ export class QuickSortAnimationComponent {
       number === undefined ? '' : number.toString(),
       {
         font: this.font,
-        size: 1.3,
+        size: 1,
         height: 0,
       }
     );
@@ -399,6 +399,7 @@ export class QuickSortAnimationComponent {
 
   numbersArr.forEach((e, i) => {
     (this.getSquareByNumber(e, i + startingIndex).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
+    (this.getSquareByNumber(e, i + startingIndex).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xeb4034);
   })
 
   await this.moveSquareUp(numbersArr[0], 0);
@@ -449,6 +450,7 @@ export class QuickSortAnimationComponent {
   
   this.sqArr.forEach((e, i) => {    
     (this.getSquareByNumber(Number(Object.keys(e)[0]), i).square.material as THREE.MeshBasicMaterial).color.set(0x000000);
+    (this.getSquareByNumber(Number(Object.keys(e)[0]), i).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0x000000);
   })
   this.renderer.render(this.scene, this.camera);
   
