@@ -7,7 +7,15 @@
   "UNI_NAME_LABEL": "PU \"Paisii Hilendarski\"",
   "FACULTY_NAME_LABEL": "Faculty of Physics and Technology",
   "AUTHOR_NAME_LABEL": "Damyan Dimitrov",
-  "YEAR_LABEL": "2024",
+  "YEAR_LABEL": "2025",
+  "ASCENDING": "Ascending",
+  "DESCENDING": "Descending",
+  "SORT": "Sort",
+  "SEARCH": "Search",
+  "PUSH": "Push",
+  "POP": "Pop",
+  "PEEK": "Peek",
+  "SOURCE_CODE": "Source code",
   "algorithmTypes": [
     {
       "label": "Sorting",
@@ -15,19 +23,17 @@
       "algorithms": [
         {
           "label": "Quick Sort",
-          "source": "quicksort",
-          "sourceCode": "",
-          "information": "Quick Sort is a widely known and highly efficient algorithm for sorting large datasets. It has a complexity of O(n log n) which makes it a common choice for most sorting scenarios, but it worst case scenario could be O(n^2) if not implemented properly. It recursively splits an array into smalled subarrays based on a pivot"
+          "source": "sorting/quickSort",
+          "sourceCode": "int partition(int arr[], int low, int high) {\\n    int pivot = arr[high];\\n    int i = low - 1;\\n\\n    for (int j = low; j < high; j++) {\\n        if (arr[j] < pivot) {\\n            i++;\\n            swap(arr[i], arr[j]);\\n        }\\n    }\\n\\n    swap(arr[i + 1], arr[high]);\\n    return i + 1;\\n }\\n\\n void quickSort(int arr[], int low, int high) {\\n    if (low < high) {\\n        int pivotIndex = partition(arr, low, high);\\n\\n        quickSort(arr, low, pivotIndex - 1);\\n        quickSort(arr, pivotIndex + 1, high);\\n    }\\n }",
+          "information": "Quick Sort is widely known and highly efficient for sorting large datasets. It has a complexity of O(n log n), which makes it a preferred choice for most sorting scenarios, but in the worst case, it could have a complexity of O(n²) if not implemented properly. The algorithm recursively splits the array into smaller subarrays based on a pivot element.",
+          "imgSource": "assets/images/quickSort.jpg"
         },
         {
           "label": "Bubble Sort",
-          "source": "bubblesort",
-          "sourceCode": ""
-        },
-        {
-          "label": "Merge Sort",
-          "source": "mergesort",
-          "sourceCode": ""
+          "source": "sorting/bubbleSort",
+          "sourceCode": "void bubbleSort(int arr[], int n) {\\n    for (int i = 0; i < n - 1; i++) {\\n        for (int j = 0; j < n - i - 1; j++) {\\n            if (arr[j] > arr[j + 1]) {\\n                int temp = arr[j];\\n                arr[j] = arr[j + 1];\\n                arr[j + 1] = temp;\\n            }\\n        }\\n    }\\n }",
+          "information": "Bubble Sort is one of the simplest sorting algorithms. It works by repeatedly traversing the list, comparing adjacent elements, and swapping them if they are in the wrong order. This process repeats until the list is fully sorted.",
+          "imgSource": "assets/images/bubble-sort.jpg"
         }
       ]
     },
@@ -36,13 +42,98 @@
       "source": "searching",
       "algorithms": [
         {
-          "label": "Sequential Search",
-          "source": "sequentialsearch",
-          "sourceCode": ""
+          "label": "Linear Search",
+          "source": "searching/linearSearch",
+          "sourceCode": "int linearSearch(int arr[], int n, int target) {\\n    for (int i = 0; i < n; i++) {\\n        if (arr[i] == target) {\\n            return i;\\n        }\\n    }\\n    return -1;\\n }",
+          "information": "Linear Search is a simple search algorithm that goes through the elements of the array one by one until it finds the target element. If the element is found, the algorithm returns it; otherwise, it returns an indication that the element does not exist in the array.",
+          "imgSource": "assets/images/linear-search.png"
         },
         {
           "label": "Binary Search",
-          "source": "binarysearch",
+          "source": "searching/binarySearch",
+          "sourceCode": "int binarySearch(int arr[], int left, int right, int target) {\\n    while (left <= right) {\\n        int mid = left + (right - left) / 2;\\n\\n        if (arr[mid] == target) {\\n            return mid;\\n        } else if (arr[mid] < target) {\\n            left = mid + 1;\\n        } else {\\n            right = mid - 1;\\n        }\\n    }\\n    return -1;\\n }",
+          "information": "Binary Search is an efficient algorithm for searching in sorted arrays. It works by repeatedly splitting the array into two halves and choosing which half to continue searching in, depending on the value of the target element. This reduces the number of elements that need to be checked with each step.",
+          "imgSource": "assets/images/binary-search.png"
+        }
+      ]
+    },
+    {
+      "label": "Data Structures",
+      "source": "dataStructures",
+      "structures": [
+        {
+          "label": "Stack",
+          "source": "stack",
+          "sourceCode": "",
+          "information": "A Stack is an abstraction for data structures that works on the principle of \"Last In, First Out\" (LIFO). This means that the last element added to the stack will be the first to be removed.",
+          "imgSource": "assets/images/stack.png"
+        },
+        {
+          "label": "Queue",
+          "source": "queue",
+          "sourceCode": "",
+          "information": "A Queue is a data structure that works on the principle of \"First In, First Out\" (FIFO). This means that the first element added to the queue will be the first to be removed.",
+          "imgSource": "assets/images/queue.png"
+        }
+      ]
+    }
+  ],
+  "advancedAlgorithms": [
+    {
+      "label": "Sorting",
+      "source": "sorting",
+      "algorithms": [
+        {
+          "label": "Merge Sort",
+          "source": "sorting/mergeSort",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Data Structures",
+      "source": "dataStructures",
+      "structures": [
+        {
+          "label": "Array",
+          "source": "array",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Hashing",
+      "source": "hashing",
+      "algorithms": [
+        {
+          "label": "MD5",
+          "source": "md5",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-1",
+          "source": "sha-1",
+          "sourceCode": ""
+        },
+        {
+          "label": "SHA-256",
+          "source": "sha-256",
+          "sourceCode": ""
+        }
+      ]
+    },
+    {
+      "label": "Randomized",
+      "source": "randomized",
+      "algorithms": [
+        {
+          "label": "Monte Carlo Integration",
+          "source": "montecarlointegration",
+          "sourceCode": ""
+        },
+        {
+          "label": "Las Vegas Integration",
+          "source": "lasvegasintegration",
           "sourceCode": ""
         }
       ]
@@ -57,72 +148,11 @@
           "sourceCode": ""
         },
         {
-          "label": "Fibonacci Sequence",
+          "label": "Fibonacci sequence",
           "source": "fibonaccisequence",
           "sourceCode": ""
         }
       ]
-    },
-    {
-      "label": "Data Structures",
-      "source": "data-structures",
-      "structures": [
-        {
-          "label": "Stack",
-          "source": "stack",
-          "sourceCode": "",
-          "information": "A stack is a fundamental data structure in computer science that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack is the first one to be removed."
-        },
-        {
-          "label": "Queue",
-          "source": "queue",
-          "sourceCode": ""
-        },
-        {
-          "label": "Array",
-          "source": "array",
-          "sourceCode": ""}
-      ]
     }
-  ],
-  "advancedAlgorithms": [
-    {
-    "label": "Hashing",
-    "source": "hashing",
-    "algorithms": [
-      {
-        "label": "MD5",
-        "source": "md5",
-        "sourceCode": ""
-      },
-      {
-        "label": "SHA-1",
-        "source": "sha-1",
-        "sourceCode": ""
-      },
-      {
-        "label": "SHA-256",
-        "source": "sha-256",
-        "sourceCode": ""
-      }
-    ]
-  },
-    {
-      "label": "Randomized",
-      "source": "randomized",
-      "algorithms": [
-        {
-          "label": "Monte Carlo Integration",
-          "source": "montecarlointegration",
-          "sourceCode": ""
-        },
-        {
-          "label": "Las Vegas Quicksort Integration",
-          "source": "lasvegasintegration",
-          "sourceCode": ""
-        }
-      ]
-    }]
+  ]
 }
-
-
