@@ -64,6 +64,10 @@ export class BinarySearchInputComponent {
       return false;
     }
 
+    if(!this.isSorted(data)) {
+      return false;
+    }
+
     return true;
   }
 

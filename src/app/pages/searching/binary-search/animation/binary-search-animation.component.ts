@@ -494,8 +494,9 @@ export class BinarySearchAnimationComponent {
 
     await this.moveSquareDown(numbersArr[mid], mid);
     if (!searchingInLeftHalf) {
-      ((Object.values(this.sqArr[mid])[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0x000000);
-      ((Object.values(this.sqArr[mid])[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0x000000);
+      ((Object.values(this.sqArr[mid])[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
+      ((Object.values(this.sqArr[mid])[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
+      ((Object.values(this.sqArr[mid])[0] as SquareModel).index.material as THREE.MeshBasicMaterial).color.set(0xb3b2b1);
       this.renderer.render(this.scene, this.camera);
     }
   }

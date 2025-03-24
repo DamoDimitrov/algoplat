@@ -98,7 +98,6 @@ export class BubbleSortAnimationComponent {
 
     setTimeout(() => {
       this.sort(this.sortData.data.map(Number));
-      // Algorithms.bubbleSort(this.sortData.data.map(Number));
     }, 500);
   }
 
@@ -389,8 +388,7 @@ export class BubbleSortAnimationComponent {
     return this.sqArr[index][this.sortData.data[index]];
   }
 
- private async sort(numbersArr: number[], startingIndex = 0) {
-  // const direction = this.sortData.sortType;
+ private async sort(numbersArr: number[]) {
 
   if (numbersArr.length <= 1) {
     return numbersArr;
