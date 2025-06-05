@@ -4,6 +4,6 @@
     <information [algoInformation]="algoInformation"></information>
     <linear-search-animation #animationComponent></linear-search-animation>
     <linear-search-input (inputDataEmitter)="handleInputDataEmitted($event)" ></linear-search-input>
-    <source-code [sourceCode]="algoInformation.sourceCode"></source-code>
+    <source-code [type]="'algo'" [sourceCode]="algoInformation.sourceCode"></source-code>
   </div>
   

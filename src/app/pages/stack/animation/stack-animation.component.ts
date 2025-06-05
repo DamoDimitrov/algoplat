@@ -1,4 +1,6 @@
 import {Component, ElementRef, NgZone, ViewChild} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from 'src/app/components/error-dialog/error-dialog.component';
 import * as THREE from 'three';
 import {Mesh, PerspectiveCamera, PointLight, Scene, WebGLRenderer} from 'three';
 
@@ -29,7 +31,7 @@ export class StackAnimationComponent {
   activeAnimation = false;
   peekGoingUp = true;
 
-  constructor(private ngZone: NgZone) {
+  constructor(private ngZone: NgZone, private dialog: MatDialog) {
   }
 
   ngOnInit() {}
@@ -86,6 +88,7 @@ export class StackAnimationComponent {
   drawRectangle() {
     if (this.sqArr.length === this.defaultStackSize) {
       this.activeAnimation = false;
+      this.dialog.open(ErrorDialogComponent, {data: {errorMsg: 'STACK_OVERFLOW_ERROR'}})
       return;
     }
     const geometry = new THREE.PlaneGeometry(this.rectWidth, this.rectWidth);
@@ -147,6 +150,7 @@ export class StackAnimationComponent {
   popFromStack() {
     if (!this.activeAnimation || this.next === 0) {
       this.activeAnimation = false;
+      this.dialog.open(ErrorDialogComponent, {data: {errorMsg: 'STACK_EMPTY_ERROR'}})
       return;
     }
 

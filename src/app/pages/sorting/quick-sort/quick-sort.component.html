@@ -4,5 +4,5 @@
   <information [algoInformation]="algoInformation"></information>
   <quick-sort-animation #animationComponent></quick-sort-animation>
   <quick-sort-input (inputDataEmitter)="handleInputDataEmitted($event)" ></quick-sort-input>
-  <source-code [sourceCode]="algoInformation.sourceCode"></source-code>
+  <source-code [type]="'algo'" [sourceCode]="algoInformation.sourceCode"></source-code>
 </div>

@@ -20,6 +20,9 @@ import { BubbleSortModule } from './pages/sorting/bubble-sort/bubble-sort.module
 import { MergeSortModule } from './pages/sorting/merge-sort/merge-sort.module';
 import { LinearSearchModule } from './pages/searching/linear-search/linear-search.module';
 import { BinarySearchModule } from './pages/searching/binary-search/binary-search.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatDialogModule} from '@angular/material/dialog';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { BinarySearchModule } from './pages/searching/binary-search/binary-searc
     MainPageContentComponent,
     NotFoundComponent,
     FooterComponent,
+    ErrorDialogComponent
   ],
   imports: [
     ArrayModule,
@@ -42,6 +46,7 @@ import { BinarySearchModule } from './pages/searching/binary-search/binary-searc
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       defaultLanguage: 'bg',
       useDefaultLang: true,
@@ -52,7 +57,9 @@ import { BinarySearchModule } from './pages/searching/binary-search/binary-searc
       },
     }),
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

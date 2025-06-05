@@ -9,6 +9,8 @@ export class SourceCodeComponent {
 
   @Input()
   sourceCode: string;
+  @Input()
+  type: string;
 
   get formattedSourceCode(): string {
     return this.sourceCode.replace(/\\n/g, '\n');

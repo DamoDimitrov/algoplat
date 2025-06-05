@@ -2,6 +2,8 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HelperFunctions} from "../../../../utils/HelperFunctions";
 import {SortDataModel} from "../../shared/models/SortDataModel";
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from 'src/app/components/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'bubble-sort-input',
@@ -15,7 +17,10 @@ export class BubbleSortInputComponent {
   inputDataEmitter = new EventEmitter();
   formattedData: SortDataModel;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private dialog: MatDialog
+  ) {
     this.createFormGroup();
   }
 
@@ -42,6 +47,8 @@ export class BubbleSortInputComponent {
 
         this.inputDataEmitter.emit(this.formattedData);
       }
+    } else {
+      this.dialog.open(ErrorDialogComponent, {data: {errorMsg: 'OUT_OF_BOUNDS_ARRAY_ERROR'}});
     }
 
   }
@@ -49,11 +56,15 @@ export class BubbleSortInputComponent {
   validateInputNumbers(data: number[]) {
     if (data.length > 9 || data.length < 1) {
       console.error('The Array is too long or too short');
+      this.dialog.open(ErrorDialogComponent, {data: {errorMsg: 'OUT_OF_BOUNDS_ARRAY_ERROR'}});
+
       return false;
     }
 
     if (data.some(n => n > 99 || n < -99)) {
       console.error('The numbers should be bigger than -99 and smaller than 99');
+      this.dialog.open(ErrorDialogComponent, {data: {errorMsg: 'ARRAY_NUMBER_SIZE_ERROR'}});
+
       return false;
     }
 

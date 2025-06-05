@@ -1,5 +1,6 @@
 <div>
-    <h2>{{"SOURCE_CODE" | translate}}</h2>
+    <h2 *ngIf="type === 'algo'">{{"SOURCE_CODE_ALGO" | translate}}</h2>
+    <h2 *ngIf="type === 'data'">{{"SOURCE_CODE_DATA" | translate}}</h2>
     <pre>
         <code [innerHTML]="formattedSourceCode">
         </code>

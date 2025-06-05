@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { QueueComponent } from './queue.component';
 import { InformationModule } from 'src/app/components/information/information.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { SourceCodeModule } from 'src/app/components/source-code/source-code.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
-    InformationModule
+    InformationModule,
+    SourceCodeModule
   ]
 })
 export class QueueModule {

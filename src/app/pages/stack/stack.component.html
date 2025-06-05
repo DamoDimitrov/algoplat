@@ -8,5 +8,7 @@
   <stack-user-input 
     (peekBtnEventEmitter)="handlePeekEvent()" 
     (pushBtnEventEmitter)="handlePushEvent()"
-    (popBtnEventEmitter)="handlePopEvent()"></stack-user-input>
+    (popBtnEventEmitter)="handlePopEvent()">
+  </stack-user-input>
+  <source-code [type]="'data'" [sourceCode]="algoInformation.sourceCode"></source-code>
 </div>

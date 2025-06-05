@@ -4,6 +4,6 @@
     <information [algoInformation]="algoInformation"></information>
     <bubble-sort-animation #animationComponent></bubble-sort-animation>
     <bubble-sort-input (inputDataEmitter)="handleInputDataEmitted($event)" ></bubble-sort-input>
-    <source-code [sourceCode]="algoInformation.sourceCode"></source-code>
+    <source-code [type]="'algo'" [sourceCode]="algoInformation.sourceCode"></source-code>
   </div>
   

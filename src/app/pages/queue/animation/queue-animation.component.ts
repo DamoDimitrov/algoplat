@@ -1,4 +1,6 @@
 import {Component, ElementRef, NgZone, ViewChild} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from 'src/app/components/error-dialog/error-dialog.component';
 import {Mesh, PerspectiveCamera, PointLight, Scene, WebGLRenderer} from "three";
 import * as THREE from "three";
 
@@ -29,7 +31,10 @@ export class QueueAnimationComponent {
   activeAnimation = false;
   peekGoingDown = true;
 
-  constructor(private ngZone: NgZone) {
+  constructor(
+    private ngZone: NgZone,
+     private dialog: MatDialog
+    ) {
   }
 
   ngOnInit() {
@@ -106,6 +111,7 @@ export class QueueAnimationComponent {
   popFromQueue(): void {
     if (!this.activeAnimation || this.next === 0) {
       this.activeAnimation = false;
+      this.dialog.open(ErrorDialogComponent, {data: {errorMsg: 'QUEUE_EMPTY_ERROR'}})
       return;
     }
 
@@ -181,6 +187,7 @@ export class QueueAnimationComponent {
   drawRectangle() {
     if (this.sqArr.length === this.defaultStackSize) {
       this.activeAnimation = false;
+      this.dialog.open(ErrorDialogComponent, {data: {errorMsg: 'QUEUE_OVERFLOW_ERROR'}})
       return;
     }
     const geometry = new THREE.PlaneGeometry(this.rectWidth, this.rectWidth);

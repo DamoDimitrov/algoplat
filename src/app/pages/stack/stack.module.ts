@@ -5,6 +5,7 @@ import {StackInputComponent} from "./input/stack-input.component";
 import {StackAnimationComponent} from "./animation/stack-animation.component";
 import { TranslateModule } from '@ngx-translate/core';
 import { InformationModule } from 'src/app/components/information/information.module';
+import { SourceCodeModule } from 'src/app/components/source-code/source-code.module';
 
 
 
@@ -12,12 +13,13 @@ import { InformationModule } from 'src/app/components/information/information.mo
   declarations: [
     StackComponent,
     StackInputComponent,
-    StackAnimationComponent
+    StackAnimationComponent,
   ],
   imports: [
     CommonModule,
     TranslateModule,
-    InformationModule
+    InformationModule,
+    SourceCodeModule
   ]
 })
 export class StackModule { }

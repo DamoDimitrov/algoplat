@@ -4,6 +4,6 @@
     <information [algoInformation]="algoInformation"></information>
     <binary-search-animation #animationComponent></binary-search-animation>
     <binary-search-input (inputDataEmitter)="handleInputDataEmitted($event)" ></binary-search-input>
-    <source-code [sourceCode]="algoInformation.sourceCode"></source-code>
+    <source-code [type]="'algo'" [sourceCode]="algoInformation.sourceCode"></source-code>
   </div>
   
