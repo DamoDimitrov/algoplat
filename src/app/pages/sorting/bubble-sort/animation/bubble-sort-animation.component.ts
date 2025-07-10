@@ -394,46 +394,56 @@ export class BubbleSortAnimationComponent {
     return numbersArr;
   }
 
-  let isSwapped: boolean;
-    do {
-      isSwapped = false;
-      for (let i = 0; i < numbersArr.length - 1; i++) {
-        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034));
-        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xeb4034));
+  for (let i = 0; i < numbersArr.length - 1; i++) {
+  for (let j = 0; j < numbersArr.length - 1 - i; j++) {
+    // Highlight squares being compared
+    this.sqArr.slice(j, j + 2).forEach(e =>
+      ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0xeb4034)
+    );
+    this.sqArr.slice(j, j + 2).forEach(e =>
+      ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0xeb4034)
+    );
+    this.renderer.render(this.scene, this.camera);
 
-        this.renderer.render(this.scene, this.camera);
+    await Promise.all([
+      this.moveSquareUp(numbersArr[j], j),
+      this.moveSquareUp(numbersArr[j + 1], j + 1)
+    ]);
 
-        await Promise.all([
-          this.moveSquareUp(numbersArr[i], i),
-          this.moveSquareUp(numbersArr[i + 1], i + 1)
-        ]);
+    if (numbersArr[j] > numbersArr[j + 1]) {
+      await this.exchangeSquaresPositions(j, j + 1);
 
-        if (numbersArr[i] > numbersArr[i + 1]) {
-          await this.exchangeSquaresPositions(i, i + 1);
-          const tSq = this.sqArr[i];
-          this.sqArr[i] = this.sqArr[i + 1];
-          this.sqArr[i + 1] = tSq;
+      // Swap visual squares
+      const tSq = this.sqArr[j];
+      this.sqArr[j] = this.sqArr[j + 1];
+      this.sqArr[j + 1] = tSq;
 
-          const t = numbersArr[i];
-          numbersArr[i] = numbersArr[i + 1];
-          numbersArr[i + 1] = t;
+      // Swap actual numbers
+      const t = numbersArr[j];
+      numbersArr[j] = numbersArr[j + 1];
+      numbersArr[j + 1] = t;
 
-          const tData = this.sortData.data[i];
-          this.sortData.data[i] = this.sortData.data[i + 1];
-          this.sortData.data[i + 1] = tData;
-          isSwapped = true;
-        }
+      // Swap sortData (if needed for stats/labels/etc.)
+      const tData = this.sortData.data[j];
+      this.sortData.data[j] = this.sortData.data[j + 1];
+      this.sortData.data[j + 1] = tData;
+    }
 
-        await Promise.all([
-          this.moveSquareDown(numbersArr[i], i),
-          this.moveSquareDown(numbersArr[i + 1], i + 1)
-        ]);
+    await Promise.all([
+      this.moveSquareDown(numbersArr[j], j),
+      this.moveSquareDown(numbersArr[j + 1], j + 1)
+    ]);
 
-        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0x000000));
-        this.sqArr.slice(i, i + 2).forEach(e => ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0x000000));
-        this.renderer.render(this.scene, this.camera);
-      }
-    } while (isSwapped);
+    // Reset color
+    this.sqArr.slice(j, j + 2).forEach(e =>
+      ((Object.values(e)[0] as SquareModel).square.material as THREE.MeshBasicMaterial).color.set(0x000000)
+    );
+    this.sqArr.slice(j, j + 2).forEach(e =>
+      ((Object.values(e)[0] as SquareModel).numberInSquare.material as THREE.MeshBasicMaterial).color.set(0x000000)
+    );
+    this.renderer.render(this.scene, this.camera);
+  }
+}
 
     return numbersArr;
   }
